@@ -453,6 +453,49 @@ DECISIONS.md               architecture and governance decisions with their reas
 SEMANTIC_RUBRIC.md         the human-authored eight-criterion rubric
 ```
 
+## Generalising beyond the demonstration products
+
+Although the prototype began with one concrete roller-skate brief and now also
+includes a garden-trimmer adversarial case, the intended architecture is not tied
+to either product. The transferable idea is a small **evidence and governance
+kernel** surrounded by **versioned, case-specific domain packs**. The kernel owns
+source identity, traceability, deterministic checks, immutable artifacts and
+human decision history. A domain pack owns what a particular industry means by a
+useful translation: its output sections, terminology, units, rules, knowledge
+sources, evaluation cases and required reviewers.
+
+### What is reusable and what is case-specific
+
+| Layer | Reusable across products and industries | Case-specific or still needs parameterisation |
+| --- | --- | --- |
+| Source provenance | Raw-file hashing, source IDs, canonical text, evidence spans and immutable snapshots | The extractor and native locator: PDF page, DOCX paragraph, spreadsheet cell, slide, image region or PLM record |
+| Translation workflow | Structured model output, typed failures, one bounded repair and complete retention of the initial and repaired states | The current six-section `TechnicalDossier`, prompt examples, required fields and vocabulary |
+| Deterministic verification | Exact-quotation resolution, raw-offset recovery, same-object numeric provenance and fail-closed validation | Domain validators for units, tolerances, standards, equations, prohibited materials and safety rules |
+| Semantic challenge | Separation between translation and critic, exact excerpts for adverse findings and typed issue categories | Industry-specific issue types, acceptable qualifier mappings, risk severity and critic instructions |
+| Human governance | Section-level decisions, required correction rationales, parent-linked history and final hash manifests | Reviewer qualifications, number of approvers, escalation rules and the acceptance policy |
+| Evaluation | Immutable, artifact-linked scoring and regression tests | The rubric, planted adversarial traps, expected answers and pass thresholds for each domain |
+
+The current implementation therefore contains both a reusable core and a visible
+prototype constraint: its dossier schema, prompts, UI labels and review flow are
+fixed to six sections. Generalisation means making those elements load from a
+versioned domain profile; it does **not** mean asking a larger model to improvise
+an industry schema at run time.
+
+### How the design extends
+
+| Extension target | Change required | Contract that remains stable |
+| --- | --- | --- |
+| Other product briefs | Accept a manifest of one or more brief sources and select a versioned brief profile defining the output sections, required claim types and reviewer roles. Optional and repeatable sections would replace the current fixed six-section schema. | Every claim still identifies its source evidence; model output is still reverified before review. |
+| Other document formats | Add source adapters that emit raw-file hashes, canonical text blocks and reversible native locators. For example: DOCX paragraph/table-cell IDs, XLSX sheet/cell coordinates, HTML DOM paths, slide numbers, email message IDs, and OCR page/bounding boxes with confidence. | Citation matching and audit artifacts consume the same canonical evidence representation rather than format-specific model output. |
+| Other industries | Load a signed, versioned domain pack containing an ontology, aliases, units, standards, qualifier policy, domain validators, critic rules, evaluation fixtures and reviewer requirements. Engineering, medical, legal or regulated packs would require appropriately qualified owners. | The model may propose a mapping, but it cannot invent a standard, safety limit or approval; code and named reviewers retain those responsibilities. |
+| Evolving domain knowledge | Put retrieval behind the existing freeze-and-hash boundary. Each evidence snapshot records origin, revision, effective date, jurisdiction, applicability and expiry. A changed standard or supplier datasheet creates a new snapshot and a new review; it never rewrites an old decision. | A run always evaluates against immutable, cited evidence, and its exact knowledge dependencies remain reproducible. |
+
+This separation also makes change impact explicit. A new parser should rerun
+format conformance tests; a new prompt or model should rerun the held-out defect
+corpus; a new domain-pack version should rerun its domain validators and identify
+which accepted reports depend on superseded knowledge. Old artifacts remain
+readable under the versions that created them.
+
 ## Limitations
 
 - Exact citations do not prove that a conclusion is logically or technically
@@ -479,8 +522,28 @@ SEMANTIC_RUBRIC.md         the human-authored eight-criterion rubric
 - Review records one reviewer's decisions. Multi-reviewer sign-off is out of
   scope here.
 
-## What I would change for production
+## What would change for production-scale reliability
 
+The prototype proves an auditable workflow, not production readiness. A reliable
+service would preserve the same propose/prove/decide boundary while adding the
+following controls:
+
+- **Versioned adapter and domain-pack interfaces.** Define compatibility rules,
+  schema migrations and conformance suites so a new format or industry cannot
+  silently change the meaning of old artifacts.
+- **Durable, idempotent execution.** Move runs and artifacts to a transactional
+  metadata store plus immutable object storage; use queued jobs, idempotency keys,
+  retries around individual provider calls and explicit recovery from partial
+  failure. A retry must never create two review histories for one run.
+- **Knowledge lifecycle and impact analysis.** Track which claims depend on each
+  standard, regulation or supplier revision; notify owners when evidence expires
+  or is superseded and require a new review instead of silently refreshing it.
+- **Security and governance.** Add tenant isolation, role-based access,
+  encryption, managed secrets, retention policies, audit export and redaction or
+  data-residency controls for confidential briefs.
+- **Operational observability.** Record queue time, model latency and cost,
+  validation-error rates, repair frequency, reviewer overrides, stale-knowledge
+  alerts and end-to-end completion SLIs without logging private source text.
 - **Independent human rubric scoring.** Replace the model-assisted evaluation
   with scoring by an engineer who did not run the pipeline, keeping the
   model-assisted score only as a cheap pre-filter and keeping both in the record.
