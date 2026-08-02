@@ -2,6 +2,8 @@
 
 [![Verify](https://github.com/Ninadnj/traceable-brief-translator/actions/workflows/ci.yml/badge.svg)](https://github.com/Ninadnj/traceable-brief-translator/actions/workflows/ci.yml)
 
+**[Open the live Streamlit demo](https://traceable-brief-translator-pebssqcwrpql6v8spzsxu5.streamlit.app/)**
+
 Traceable Brief Translator is the current CompoundX demonstration. It turns one
 incomplete product brief into a six-section, traceable engineering dossier:
 product intent, component function, performance to validate, material-relevant
