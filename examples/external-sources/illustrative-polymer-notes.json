@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "source_id": "pack_provenance_notice",
+      "title": "ILLUSTRATIVE PLACEHOLDER PACK - NOT A REAL RETRIEVED SOURCE",
+      "locator": "example://frozen-snapshot/pack-provenance-notice",
+      "retrieved_at": null,
+      "text": "ILLUSTRATIVE PLACEHOLDER - NOT A RETRIEVED SOURCE. ILLUSTRATIVE PLACEHOLDER PACK. Every snapshot in this file was written by hand for the CompoundX Demo so that the external-knowledge path can be exercised offline. None of it was retrieved. No sentence here is copied from, or attributed to, any real website, standard, datasheet, publication or organisation, the example:// locators do not resolve, and retrieved_at is deliberately null because no retrieval took place. The material is generic engineering background and deliberately carries no material property values, so no figure in this pack can be mistaken for a datasheet number. Nothing in this pack may be treated as authoritative or applicable, and a citation verified against it proves only that the quoted words are present in this frozen text."
+    },
+    {
+      "source_id": "illustrative_polymer_low_temperature_notes",
+      "title": "Illustrative placeholder notes: polymers at reduced temperature",
+      "locator": "example://frozen-snapshot/polymer-cold-temperature-notes",
+      "retrieved_at": null,
+      "text": "ILLUSTRATIVE PLACEHOLDER - NOT A RETRIEVED SOURCE. Polymers do not behave at reduced temperature the way they behave at room temperature. As temperature falls, chain mobility decreases, the material stiffens, and the energy it absorbs before fracture drops. Many thermoplastics therefore show a ductile-to-brittle transition: above it the material yields and deforms visibly before failing, and below it the same geometry can fail with very little plastic deformation. That transition is not a single fixed material constant. It shifts with strain rate, with the sharpness of any notch, corner or moulding feature, with wall thickness, and with the thermal history of the part. A specimen result obtained at one loading rate therefore does not transfer directly to a different rate or a different geometry, which is why cold behaviour is normally confirmed on the finished component under the loading that component will actually see."
+    },
+    {
+      "source_id": "illustrative_process_variation_notes",
+      "title": "Illustrative placeholder notes: moulded parts inherit process history",
+      "locator": "example://frozen-snapshot/moulding-process-variation-notes",
+      "retrieved_at": null,
+      "text": "ILLUSTRATIVE PLACEHOLDER - NOT A RETRIEVED SOURCE. A moulded part inherits its properties from how it was made, not only from the polymer that was specified. Melt temperature, injection speed, holding pressure and cooling rate all influence crystallinity, molecular orientation and residual stress. Weld lines, where two flow fronts meet, and regions beside gates or abrupt thickness changes are usually the weakest locations in the finished part. Recycled or regrind feedstock introduces a further source of variation, because prior processing history and contamination differ between batches. For these reasons a property quoted for a moulded test plaque is treated as an upper reference rather than a promise about the component, and component-level validation is used to establish what the finished part actually achieves."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        # The package declares requires-python >= 3.11; test the floor and a current release.
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+
+      - name: Test
+        run: pytest -ra
+
+      - name: Verify the shipped artifacts still validate
+        # The demo artifacts are the project's evidence. A change that silently
+        # breaks their citation or numeric provenance must fail the build.
+        run: |
+          python - <<'PY'
+          import json, sys
+          from compoundx.models import SourceDocument
+          from compoundx.schemas import CriticOutput, TechnicalDossier, SourcePageSpan
+          from compoundx.verifier import verify_critic, verify_dossier
+
+          failed = False
+          for case, expected in (("roller-skate", 12), ("garden-trimmer", 11)):
+              report = json.load(open(f"demo-results/{case}/acceptance/report.json"))
+              source = SourceDocument(
+                  source_name=report["source"]["name"],
+                  sha256=report["source"]["sha256"],
+                  text=report["source_text"],
+              )
+              pages = tuple(
+                  SourcePageSpan.model_validate(page)
+                  for page in report.get("source_pages") or ()
+              )
+              dossier = TechnicalDossier.model_validate(report["translation"])
+              result = verify_dossier(
+                  source,
+                  dossier,
+                  (),
+                  pages,
+              )
+              critic = CriticOutput.model_validate(report["critic"])
+              critic_result = verify_critic(
+                  source,
+                  critic,
+                  (),
+                  pages,
+                  dossier,
+                  result,
+                  require_current_contract=True,
+              )
+              ok = (
+                  result.valid_content_count == expected
+                  and not result.invalid_content_count
+                  and not critic_result.errors
+              )
+              print(
+                  f"{case}: {result.valid_content_count}/{len(result.contents)} "
+                  f"translation contents valid; {len(critic_result.errors)} critic errors"
+              )
+              failed |= not ok
+          sys.exit(1 if failed else 0)
+          PY
+
+      - name: Build the installable package
+        run: |
+          python -m pip install build
+          python -m build
