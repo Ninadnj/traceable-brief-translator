@@ -73,10 +73,17 @@ the roller-skate target case and garden-trimmer altered case.
 ## 5. Semantic evaluation is separate from production translation
 
 The repository retains a human-authored eight-criterion rubric and a strict
-semantic-evaluation schema, but the refreshed demonstration reports have not been
-scored with it. They are mechanically eligible inputs to human review, not
-independent semantic approvals. The section-level critic is part of production
-translation; rubric evaluation remains a separate activity.
+semantic-evaluation schema. Each refreshed demonstration now has one disclosed
+`model_assisted` evaluation of its canonical finalized human-review JSON. The
+evaluation records a run-relative path and SHA-256 for that reviewed artifact;
+both cases score `[5, 5, 5, 4, 5, 5, 5, 4]` (mean 4.75/5) and all their
+case-specific adversarial checks pass.
+
+This remains supporting evidence, not an acceptance gate or an independent
+semantic approval. It runs after finalization, cannot alter the review chain,
+and does not independently confirm the named reviewer's decision. The
+section-level critic is part of production translation; rubric evaluation is a
+separate one-way child of the finalized review.
 
 ## 6. Human review is section-level and immutable
 
@@ -88,6 +95,19 @@ the six decisions and validation result.
 The final JSON is the complete audit artifact. Markdown and PDF are deterministic
 presentations of the same reviewed dossier, with a sidecar manifest containing
 their hashes.
+
+The two published cases each contain six immutable `save_section` snapshots and
+one `finalize` snapshot, all by Nina Doinjashvili and all linked to the same
+accepted-report and source hashes. The terminal status is
+`approved_with_corrections`. Adding one reviewed missing-information item per
+case increases the mechanically valid content counts from 12 to 13 for
+roller-skate and from 11 to 12 for garden-trimmer; both reviewed dossiers retain
+zero validation errors. Final JSON, Markdown, PDF and manifest files are shipped.
+
+Review directories use
+`<timestamp>-<action>-<section-or-terminal-status>-<hash-prefix>`. The finalized
+review is terminal: neither a later section snapshot nor its supporting
+evaluation may reopen or extend that chain.
 
 ## 7. External knowledge is explicit and bounded
 
@@ -106,9 +126,11 @@ fetching mechanism. Adding a retrieval front end later only has to produce the
 same pack format.
 
 The refreshed reports state the current limitation directly: snapshots are
-caller supplied and exact-quote verified. Review chains tied to superseded report
-hashes are not shipped in this clean recovered repository and cannot be mistaken
-for review of the new reports.
+caller supplied and exact-quote verified. The shipped review chains are tied to
+the refreshed accepted-report hashes, and their separate evaluations are tied to
+the exact finalized reviewed-JSON hashes. Superseded review chains are not
+shipped in this clean recovered repository and cannot be mistaken for review of
+the new reports.
 
 ## Known limitations
 

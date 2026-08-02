@@ -77,6 +77,7 @@ def test_semantic_evaluation_renders_and_never_overwrites(tmp_path) -> None:
 
     assert "Mean score: 5.00/5" in rendered
     assert "unsupported_claim: PASS" in rendered
+    assert f"Evaluated artifact: `{evaluation.report_path}`" in rendered
 
     json_path, markdown_path = write_semantic_evaluation(
         tmp_path / "evaluation",

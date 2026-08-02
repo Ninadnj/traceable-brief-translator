@@ -8,6 +8,19 @@ is not independent human review and must never be presented as such.
 
 The rubric remains separate from the translation pipeline. It does not become a
 third production model pass and it does not claim deterministic semantic proof.
+The saved artifact under evaluation may be the accepted model report or the
+canonical finalized human-review JSON. When it is a finalized review, evidence
+paths address `reviewed_dossier` (and, where relevant, `sections` and
+`validation`) rather than the base report's `translation` field. `report_path`
+must identify that saved artifact and `report_sha256` must hash the exact bytes
+at that path.
+
+In the published demonstrations the rubric is explicitly `model_assisted` and
+targets each run's finalized `review.json` using a run-relative path. It is
+written afterward as `evaluation/evaluation.json` plus a deterministic Markdown
+rendering. That final-review-to-evaluation link is one-way: the evaluation is
+supporting evidence only and cannot change eligibility, review decisions,
+terminal status, or review lineage.
 
 ## Scoring anchors
 
@@ -42,6 +55,7 @@ third production model pass and it does not claim deterministic semantic proof.
 A case passes only when every criterion scores at least 4/5 and every
 case-specific adversarial check passes. `overall_pass` is calculated from those
 inputs and cannot be supplied by the evaluator. The completed evaluation must
-cite the saved report sections used for each judgement. A model-assisted pass
-remains provisional until a person reviews or signs it; neither form of rubric
-result proves that a design or material is safe or suitable.
+cite fields in the saved artifact used for each judgement. A model-assisted
+evaluation performed after a human review does not become human rubric scoring
+and does not independently confirm or countersign that review. Neither form of
+rubric result proves that a design or material is safe or suitable.

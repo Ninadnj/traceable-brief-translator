@@ -1,0 +1,1061 @@
+{
+  "schema_version": "compoundx.section-review.v2",
+  "created_at": "2026-08-02T22:11:20Z",
+  "reviewer_id": "Nina Doinjashvili",
+  "action": "save_section",
+  "updated_section": "product_intent",
+  "decision_rationale": null,
+  "accepted_report_relative_path": "acceptance/report.json",
+  "accepted_report_sha256": "8f66801a093da540f24de12cf346a59c32ebb851b6a1efd3dae76fe21eaf6074",
+  "source_sha256": "9f2feaae87dae2c6d896882ac4758174f9b8cb28e39db5dca6e41544eb7368a6",
+  "parent_review": null,
+  "sections": {
+    "product_intent": {
+      "section": "product_intent",
+      "status": "approved_as_generated",
+      "model_content": {
+        "evidence_quotes": [
+          "The company is redesigning the battery retention latch used in a cordless garden trimmer.",
+          "Prevent accidental battery release during normal operation.",
+          "Improve durability during cold-weather use.",
+          "Maintain easy manual battery removal.",
+          "A reduction in battery-release force of approximately 20% would improve usability.",
+          "Reliability has higher priority than release-force reduction.",
+          "The expected operating-temperature range is approximately -15 C to 50 C.",
+          "The component should contain at least 25% post-consumer recycled material by mass.",
+          "The visible surface should remain black and matte.",
+          "The existing mould and assembly line should preferably be reused.",
+          "Component cost should not increase by more than approximately 5%.",
+          "The new part must still look black, matte, and robust."
+        ],
+        "external_citations": [],
+        "text": "The company intends to redesign the cordless garden-trimmer battery latch, prioritising prevention of accidental battery release and improved cold-weather durability over the usability objective of reducing battery-release force by approximately 20%, while maintaining easy manual battery removal. Performance is expected across approximately -15 C to 50 C; the component should contain at least 25% post-consumer recycled material by mass, remain black and matte and look robust, preferably reuse the existing mould and assembly line, and not increase component cost by more than approximately 5%.",
+        "assumptions": [],
+        "uncertainties": []
+      },
+      "reviewed_content": {
+        "evidence_quotes": [
+          "The company is redesigning the battery retention latch used in a cordless garden trimmer.",
+          "Prevent accidental battery release during normal operation.",
+          "Improve durability during cold-weather use.",
+          "Maintain easy manual battery removal.",
+          "A reduction in battery-release force of approximately 20% would improve usability.",
+          "Reliability has higher priority than release-force reduction.",
+          "The expected operating-temperature range is approximately -15 C to 50 C.",
+          "The component should contain at least 25% post-consumer recycled material by mass.",
+          "The visible surface should remain black and matte.",
+          "The existing mould and assembly line should preferably be reused.",
+          "Component cost should not increase by more than approximately 5%.",
+          "The new part must still look black, matte, and robust."
+        ],
+        "external_citations": [],
+        "text": "The company intends to redesign the cordless garden-trimmer battery latch, prioritising prevention of accidental battery release and improved cold-weather durability over the usability objective of reducing battery-release force by approximately 20%, while maintaining easy manual battery removal. Performance is expected across approximately -15 C to 50 C; the component should contain at least 25% post-consumer recycled material by mass, remain black and matte and look robust, preferably reuse the existing mould and assembly line, and not increase component cost by more than approximately 5%.",
+        "assumptions": [],
+        "uncertainties": []
+      },
+      "rationale": null,
+      "reviewer_note": null
+    },
+    "component_function": null,
+    "performance_to_validate": null,
+    "material_relevant_criteria": null,
+    "missing_information": null,
+    "conflicts_and_tradeoffs": null
+  },
+  "reviewed_dossier": {
+    "product_intent": {
+      "evidence_quotes": [
+        "The company is redesigning the battery retention latch used in a cordless garden trimmer.",
+        "Prevent accidental battery release during normal operation.",
+        "Improve durability during cold-weather use.",
+        "Maintain easy manual battery removal.",
+        "A reduction in battery-release force of approximately 20% would improve usability.",
+        "Reliability has higher priority than release-force reduction.",
+        "The expected operating-temperature range is approximately -15 C to 50 C.",
+        "The component should contain at least 25% post-consumer recycled material by mass.",
+        "The visible surface should remain black and matte.",
+        "The existing mould and assembly line should preferably be reused.",
+        "Component cost should not increase by more than approximately 5%.",
+        "The new part must still look black, matte, and robust."
+      ],
+      "external_citations": [],
+      "text": "The company intends to redesign the cordless garden-trimmer battery latch, prioritising prevention of accidental battery release and improved cold-weather durability over the usability objective of reducing battery-release force by approximately 20%, while maintaining easy manual battery removal. Performance is expected across approximately -15 C to 50 C; the component should contain at least 25% post-consumer recycled material by mass, remain black and matte and look robust, preferably reuse the existing mould and assembly line, and not increase component cost by more than approximately 5%.",
+      "assumptions": [],
+      "uncertainties": []
+    },
+    "component_function": {
+      "evidence_quotes": [
+        "The latch retains the removable battery during normal use and must allow the user to release it manually."
+      ],
+      "external_citations": [],
+      "text": "The latch must retain the removable battery during normal use while allowing the user to release the battery manually.",
+      "assumptions": [],
+      "uncertainties": []
+    },
+    "performance_to_validate": {
+      "evidence_quotes": [
+        "The product is used outdoors and may be exposed to vibration, drops, rain, soil, fertiliser residue, lubricants, and seasonal temperature changes.",
+        "The current latch has received complaints about cracking and occasional battery release during cold-weather use.",
+        "The expected operating-temperature range is approximately -15 C to 50 C.",
+        "A reduction in battery-release force of approximately 20% would improve usability.",
+        "Reliability has higher priority than release-force reduction.",
+        "The component should contain at least 25% post-consumer recycled material by mass.",
+        "The new part must still look black, matte, and robust.",
+        "22 cracked latch components were returned during the previous winter season.",
+        "17 of the 22 returns came from regions where temperatures had fallen below 5 C.",
+        "The actual operating temperature at the moment of failure is unknown.",
+        "Four customers reported that the battery released unexpectedly.",
+        "Most visible cracks appeared near the root of the flexible latch arm.",
+        "Several returned parts also showed whitening around the snap-fit region.",
+        "Six complete products were conditioned for three hours at -10 C.",
+        "Three of the six latch components cracked.",
+        "No room-temperature control group was tested.",
+        "The insertion and removal forces were not measured.",
+        "The number and speed of cycles were not kept consistent.",
+        "The test protocol was not standardised."
+      ],
+      "external_citations": [],
+      "text": "Demonstrate resistance to accidental battery release, cracking and durability loss during normal operation and cold-weather use, evaluating the expected range of approximately -15 C to 50 C and relevant outdoor exposure to vibration, drops, rain, soil, fertiliser residue, lubricants and seasonal temperature changes without treating those exposure categories as a defined protocol. Measure manual battery-release behaviour and evaluate the approximately 20% force-reduction objective without subordinating reliability; also evaluate at least 25% post-consumer recycled content by mass and whether finished parts remain black and matte and look robust. Historical rationale includes 22 winter returns with cracks, of which 17 came from regions that had fallen below 5 C, four reports of unexpected release, cracks mainly near the latch-arm root and whitening near the snap-fit; an internal observation found three cracks among six products conditioned for three hours at -10 C, but actual field failure temperatures were unknown and that observation lacked a room-temperature control, force measurements, consistent cycling and a standardised protocol.",
+      "assumptions": [],
+      "uncertainties": []
+    },
+    "material_relevant_criteria": {
+      "evidence_quotes": [
+        "Component mass\n34 g\nConfirmed",
+        "Nominal wall thickness\n2.2 mm\nConfirmed",
+        "Manufacturing process\nInjection moulding\nConfirmed",
+        "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+        "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+        "Assembly\nTwo screws and one snap-fit\nConfirmed",
+        "Annual volume\nApproximately 240,000 parts\nForecast",
+        "Current cycle time\n29 seconds\nConfirmed",
+        "Current scrap rate\nApproximately 4%\nEstimate",
+        "No standardised material-specimen data is available for the current ABS grade.",
+        "The current mould and machine were developed for injection-moulded ABS.",
+        "Large changes in shrinkage may cause dimensional or assembly problems.",
+        "The mould contains a thin flexible section near the latch arm.",
+        "Abrasive reinforcements may increase mould wear.",
+        "A cycle-time increase above 8% should be avoided.",
+        "No validated minimum-flow requirement is available.",
+        "At least 25% post-consumer recycled material is expected.",
+        "Feedstock origin and traceability must be documented.",
+        "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+        "The visible surface should remain black and matte.",
+        "Component cost should not increase by more than approximately 5%.",
+        "The existing mould and assembly line should preferably be reused.",
+        "The new material must have a tensile strength of at least 140 MPa.",
+        "This value was copied from a supplier presentation. No internal analysis has established a relationship between this value and battery-latch performance.",
+        "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the cracking and prevent accidental battery release.”"
+      ],
+      "external_citations": [],
+      "text": "Current industrial baselines relevant to screening are an injection-moulded, 34 g component with 2.2 mm nominal walls, two screws and one snap-fit, impact-modified ABS of unknown grade, estimated material price of approximately EUR 2.60/kg, a 29-second cycle, approximately 4% scrap and forecast volume of approximately 240,000 parts; standardised specimen data for the current grade is unavailable. Future screening must account for the expectation of at least 25% post-consumer recycled material, mandatory feedstock-origin and traceability documentation, durability and process-variability caveats, black matte surfaces, an approximately 5% maximum component-cost increase, preferred reuse of the mould and assembly line, shrinkage and assembly compatibility with ABS-developed equipment, flow through the thin flexible section, mould wear from abrasive reinforcements, and the statement that a cycle-time increase above 8% should be avoided. The quality manager’s stated minimum tensile strength of at least 140 MPa is copied from a supplier presentation without an established relationship to latch performance, while the supplier’s 30% glass-fibre-reinforced PA66 recommendation and claim of tensile strength exceeding 150 MPa remain a proposal rather than validated application evidence.",
+      "assumptions": [],
+      "uncertainties": []
+    },
+    "missing_information": [
+      {
+        "evidence_quotes": [
+          "No acceptable deformation limit has been defined.",
+          "No validated numerical stiffness or strength target exists.",
+          "The insertion and removal forces were not measured.",
+          "The latch should also feel easier to operate because some users complain that the current release force is too high.",
+          "A reduction in battery-release force of approximately 20% would improve usability.",
+          "The new part must still look black, matte, and robust."
+        ],
+        "external_citations": [],
+        "text": "Define acceptance limits and measurement methods for accidental release, cracking, deformation, durability, easy operation, black and matte finish, robust perceived quality, and the approximately 20% release-force reduction; the current release-force baseline and its measurement variability are also needed."
+      },
+      {
+        "evidence_quotes": [
+          "The actual operating temperature at the moment of failure is unknown.",
+          "The product age, impact history, and battery-removal frequency are unknown.",
+          "Screw torque is not systematically recorded.",
+          "Battery insertion force is not recorded.",
+          "Dimensional variation between battery suppliers has not been measured.",
+          "The geometry around the flexible latch arm is still under review.",
+          "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual moulding stress, excessive battery insertion force, assembly conditions, or a combination."
+        ],
+        "external_citations": [],
+        "text": "Resolve the latch-arm geometry and obtain representative failure temperatures, product histories, battery-removal histories, screw torque, insertion force and battery-supplier dimensional variation so that the contributions of material behaviour, geometry, moulding stress, insertion force and assembly conditions can be distinguished."
+      },
+      {
+        "evidence_quotes": [
+          "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+          "Current material density\nUnknown\nNot available",
+          "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+          "No standardised material-specimen data is available for the current ABS grade.",
+          "Large changes in shrinkage may cause dimensional or assembly problems.",
+          "No validated minimum-flow requirement is available.",
+          "Current cycle time\n29 seconds\nConfirmed",
+          "A cycle-time increase above 8% should be avoided.",
+          "Component cost should not increase by more than approximately 5%."
+        ],
+        "external_citations": [],
+        "text": "Establish the current ABS grade, density and comparable specimen baseline; define acceptable shrinkage, dimensional and flow ranges; and define how process compatibility will be assessed against the confirmed 29-second cycle and the statement that an increase above 8% should be avoided. The approximately 5% component-cost constraint also needs a total component-cost comparison baseline, scope and method because the brief supplies only an estimated current material price of approximately EUR 2.60/kg."
+      },
+      {
+        "evidence_quotes": [
+          "The supplier has not tested the proposed grade in the current mould.",
+          "No finished latch components have been produced from the material.",
+          "No low-temperature component-level evidence has been supplied.",
+          "No data has been provided concerning battery-release force.",
+          "The proposed grade's recycled content has not been confirmed.",
+          "No appearance samples have been supplied.",
+          "The supplier has not estimated the effect on cycle time, mould wear, or component cost.",
+          "The presentation does not identify:\n the original source;\n \n a specific material grade;\n \n test methods;\n \n environmental conditions;\n \n moisture-conditioning state;\n \n component geometry;\n \n or application-specific evidence."
+        ],
+        "external_citations": [],
+        "text": "Obtain finished-component evidence for the proposed grade in the current mould, including low-temperature behaviour, battery-release force, recycled content, appearance, cycle time, mould wear and component cost. The included research note also lacks an identifiable original source, specific grade, test methods, environmental and moisture-conditioning states, component geometry and application-specific evidence."
+      }
+    ],
+    "conflicts_and_tradeoffs": [
+      {
+        "evidence_quotes": [
+          "Reliability is the first priority. The battery must not release accidentally.",
+          "The latch should also feel easier to operate because some users complain that the current release force is too high."
+        ],
+        "external_citations": [],
+        "text": "Retention reliability is the first priority, while easier operation is also sought because users report excessive release force; force reduction therefore cannot be evaluated independently of accidental-release performance."
+      },
+      {
+        "evidence_quotes": [
+          "At least 25% post-consumer recycled material is expected.",
+          "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+          "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+          "A cycle-time increase above 8% should be avoided.",
+          "Component cost should not increase by more than approximately 5%.",
+          "The visible surface should remain black and matte."
+        ],
+        "external_citations": [],
+        "text": "The expectation of at least 25% post-consumer recycled material is conditional on avoiding significant durability loss or unacceptable process variability, while mould reuse is a strong preference, a cycle-time increase above 8% should be avoided, component cost should not rise by more than approximately 5%, and the visible surface should remain black and matte; compatibility among these constraints is unresolved."
+      },
+      {
+        "evidence_quotes": [
+          "The new material must have a tensile strength of at least 140 MPa.",
+          "This value was copied from a supplier presentation. No internal analysis has established a relationship between this value and battery-latch performance.",
+          "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the cracking and prevent accidental battery release.”",
+          "The supplier has not tested the proposed grade in the current mould.",
+          "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual moulding stress, excessive battery insertion force, assembly conditions, or a combination.",
+          "Abrasive reinforcements may increase mould wear."
+        ],
+        "external_citations": [],
+        "text": "The quality manager states a minimum tensile strength of at least 140 MPa, but the brief says that value was copied and has no established relationship to latch performance; similarly, the supplier recommends 30% glass-fibre-reinforced PA66, cites tensile strength above 150 MPa and promises elimination of cracking and accidental release without current-mould testing. These material-centred positions conflict with an unresolved, potentially combined root cause involving low-temperature behaviour, geometry, residual stress, insertion force and assembly, while any reinforcement judged abrasive may increase mould wear."
+      }
+    ]
+  },
+  "validation": {
+    "contents": [
+      {
+        "owner": "product_intent",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The company is redesigning the battery retention latch used in a cordless garden trimmer.",
+            "source_quote": "The company is redesigning the battery retention latch used in a cordless garden trimmer.",
+            "start": 123,
+            "end": 212,
+            "page_number": 1
+          },
+          {
+            "quote": "Prevent accidental battery release during normal operation.",
+            "source_quote": "Prevent accidental battery release during normal operation.",
+            "start": 615,
+            "end": 674,
+            "page_number": 1
+          },
+          {
+            "quote": "Improve durability during cold-weather use.",
+            "source_quote": "Improve durability during cold-weather use.",
+            "start": 679,
+            "end": 722,
+            "page_number": 1
+          },
+          {
+            "quote": "Maintain easy manual battery removal.",
+            "source_quote": "Maintain easy manual battery removal.",
+            "start": 727,
+            "end": 764,
+            "page_number": 1
+          },
+          {
+            "quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "source_quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "start": 846,
+            "end": 928,
+            "page_number": 1
+          },
+          {
+            "quote": "Reliability has higher priority than release-force reduction.",
+            "source_quote": "Reliability has higher priority than release-force reduction.",
+            "start": 933,
+            "end": 994,
+            "page_number": 1
+          },
+          {
+            "quote": "The expected operating-temperature range is approximately -15 C to 50 C.",
+            "source_quote": "The expected operating-temperature range is approximately -15 C to 50 C.",
+            "start": 769,
+            "end": 841,
+            "page_number": 1
+          },
+          {
+            "quote": "The component should contain at least 25% post-consumer recycled material by mass.",
+            "source_quote": "The component should contain at least 25% post-consumer recycled material by mass.",
+            "start": 999,
+            "end": 1081,
+            "page_number": 1
+          },
+          {
+            "quote": "The visible surface should remain black and matte.",
+            "source_quote": "The visible surface should remain black and matte.",
+            "start": 1086,
+            "end": 1136,
+            "page_number": 1
+          },
+          {
+            "quote": "The existing mould and assembly line should preferably be reused.",
+            "source_quote": "The existing mould and assembly line should preferably be reused.",
+            "start": 1141,
+            "end": 1206,
+            "page_number": 1
+          },
+          {
+            "quote": "Component cost should not increase by more than approximately 5%.",
+            "source_quote": "Component cost should not increase by more than approximately 5%.",
+            "start": 1211,
+            "end": 1276,
+            "page_number": 1
+          },
+          {
+            "quote": "The new part must still look black, matte, and robust.",
+            "source_quote": "The new part must still look black, matte, and robust.",
+            "start": 3997,
+            "end": 4051,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "component_function",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The latch retains the removable battery during normal use and must allow the user to release it manually.",
+            "source_quote": "The latch retains the removable battery during normal use and must allow the user to release it manually.",
+            "start": 213,
+            "end": 318,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "performance_to_validate",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The product is used outdoors and may be exposed to vibration, drops, rain, soil, fertiliser residue, lubricants, and seasonal temperature changes.",
+            "source_quote": "The product is\nused outdoors and may be exposed to vibration, drops, rain, soil, fertiliser residue, lubricants, and seasonal temperature\nchanges.",
+            "start": 319,
+            "end": 465,
+            "page_number": 1
+          },
+          {
+            "quote": "The current latch has received complaints about cracking and occasional battery release during cold-weather use.",
+            "source_quote": "The current latch has received complaints about cracking and occasional battery release during cold-weather use.",
+            "start": 466,
+            "end": 578,
+            "page_number": 1
+          },
+          {
+            "quote": "The expected operating-temperature range is approximately -15 C to 50 C.",
+            "source_quote": "The expected operating-temperature range is approximately -15 C to 50 C.",
+            "start": 769,
+            "end": 841,
+            "page_number": 1
+          },
+          {
+            "quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "source_quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "start": 846,
+            "end": 928,
+            "page_number": 1
+          },
+          {
+            "quote": "Reliability has higher priority than release-force reduction.",
+            "source_quote": "Reliability has higher priority than release-force reduction.",
+            "start": 933,
+            "end": 994,
+            "page_number": 1
+          },
+          {
+            "quote": "The component should contain at least 25% post-consumer recycled material by mass.",
+            "source_quote": "The component should contain at least 25% post-consumer recycled material by mass.",
+            "start": 999,
+            "end": 1081,
+            "page_number": 1
+          },
+          {
+            "quote": "The new part must still look black, matte, and robust.",
+            "source_quote": "The new part must still look black, matte, and robust.",
+            "start": 3997,
+            "end": 4051,
+            "page_number": 2
+          },
+          {
+            "quote": "22 cracked latch components were returned during the previous winter season.",
+            "source_quote": "22 cracked latch components were returned during the previous winter season.",
+            "start": 2317,
+            "end": 2393,
+            "page_number": 2
+          },
+          {
+            "quote": "17 of the 22 returns came from regions where temperatures had fallen below 5 C.",
+            "source_quote": "17 of the 22 returns came from regions where temperatures had fallen below 5 C.",
+            "start": 2398,
+            "end": 2477,
+            "page_number": 2
+          },
+          {
+            "quote": "The actual operating temperature at the moment of failure is unknown.",
+            "source_quote": "The actual operating temperature at the moment of failure is unknown.",
+            "start": 2482,
+            "end": 2551,
+            "page_number": 2
+          },
+          {
+            "quote": "Four customers reported that the battery released unexpectedly.",
+            "source_quote": "Four customers reported that the battery released unexpectedly.",
+            "start": 2636,
+            "end": 2699,
+            "page_number": 2
+          },
+          {
+            "quote": "Most visible cracks appeared near the root of the flexible latch arm.",
+            "source_quote": "Most visible cracks appeared near the root of the flexible latch arm.",
+            "start": 2704,
+            "end": 2773,
+            "page_number": 2
+          },
+          {
+            "quote": "Several returned parts also showed whitening around the snap-fit region.",
+            "source_quote": "Several returned parts also showed whitening around the snap-fit region.",
+            "start": 2778,
+            "end": 2850,
+            "page_number": 2
+          },
+          {
+            "quote": "Six complete products were conditioned for three hours at -10 C.",
+            "source_quote": "Six complete products were conditioned for three hours at -10 C.",
+            "start": 2885,
+            "end": 2949,
+            "page_number": 2
+          },
+          {
+            "quote": "Three of the six latch components cracked.",
+            "source_quote": "Three of the six latch components cracked.",
+            "start": 3021,
+            "end": 3063,
+            "page_number": 2
+          },
+          {
+            "quote": "No room-temperature control group was tested.",
+            "source_quote": "No room-temperature control group was tested.",
+            "start": 3068,
+            "end": 3113,
+            "page_number": 2
+          },
+          {
+            "quote": "The insertion and removal forces were not measured.",
+            "source_quote": "The insertion and removal forces were not measured.",
+            "start": 3118,
+            "end": 3169,
+            "page_number": 2
+          },
+          {
+            "quote": "The number and speed of cycles were not kept consistent.",
+            "source_quote": "The number and speed of cycles were not kept consistent.",
+            "start": 3218,
+            "end": 3274,
+            "page_number": 2
+          },
+          {
+            "quote": "The test protocol was not standardised.",
+            "source_quote": "The test protocol was not standardised.",
+            "start": 3279,
+            "end": 3318,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "material_relevant_criteria",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Component mass\n34 g\nConfirmed",
+            "source_quote": "Component mass\n34 g\nConfirmed",
+            "start": 1415,
+            "end": 1444,
+            "page_number": 1
+          },
+          {
+            "quote": "Nominal wall thickness\n2.2 mm\nConfirmed",
+            "source_quote": "Nominal wall thickness\n2.2 mm\nConfirmed",
+            "start": 1445,
+            "end": 1484,
+            "page_number": 1
+          },
+          {
+            "quote": "Manufacturing process\nInjection moulding\nConfirmed",
+            "source_quote": "Manufacturing process\nInjection moulding\nConfirmed",
+            "start": 1485,
+            "end": 1535,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+            "source_quote": "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+            "start": 1536,
+            "end": 1609,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+            "source_quote": "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+            "start": 1657,
+            "end": 1714,
+            "page_number": 1
+          },
+          {
+            "quote": "Assembly\nTwo screws and one snap-fit\nConfirmed",
+            "source_quote": "Assembly\nTwo screws and one snap-fit\nConfirmed",
+            "start": 1754,
+            "end": 1800,
+            "page_number": 1
+          },
+          {
+            "quote": "Annual volume\nApproximately 240,000 parts\nForecast",
+            "source_quote": "Annual volume\nApproximately 240,000 parts\nForecast",
+            "start": 1801,
+            "end": 1851,
+            "page_number": 1
+          },
+          {
+            "quote": "Current cycle time\n29 seconds\nConfirmed",
+            "source_quote": "Current cycle time\n29 seconds\nConfirmed",
+            "start": 1852,
+            "end": 1891,
+            "page_number": 1
+          },
+          {
+            "quote": "Current scrap rate\nApproximately 4%\nEstimate",
+            "source_quote": "Current scrap rate\nApproximately 4%\nEstimate",
+            "start": 1892,
+            "end": 1936,
+            "page_number": 1
+          },
+          {
+            "quote": "No standardised material-specimen data is available for the current ABS grade.",
+            "source_quote": "No standardised material-specimen data is available for the current ABS grade.",
+            "start": 2005,
+            "end": 2083,
+            "page_number": 1
+          },
+          {
+            "quote": "The current mould and machine were developed for injection-moulded ABS.",
+            "source_quote": "The current mould and machine were developed for injection-moulded ABS.",
+            "start": 4465,
+            "end": 4536,
+            "page_number": 3
+          },
+          {
+            "quote": "Large changes in shrinkage may cause dimensional or assembly problems.",
+            "source_quote": "Large changes in shrinkage may cause dimensional or assembly problems.",
+            "start": 4537,
+            "end": 4607,
+            "page_number": 3
+          },
+          {
+            "quote": "The mould contains a thin flexible section near the latch arm.",
+            "source_quote": "The mould contains a thin flexible section near the latch arm.",
+            "start": 4608,
+            "end": 4670,
+            "page_number": 3
+          },
+          {
+            "quote": "Abrasive reinforcements may increase mould wear.",
+            "source_quote": "Abrasive reinforcements may increase mould wear.",
+            "start": 4671,
+            "end": 4719,
+            "page_number": 3
+          },
+          {
+            "quote": "A cycle-time increase above 8% should be avoided.",
+            "source_quote": "A cycle-time increase above 8% should be avoided.",
+            "start": 4720,
+            "end": 4769,
+            "page_number": 3
+          },
+          {
+            "quote": "No validated minimum-flow requirement is available.",
+            "source_quote": "No validated minimum-flow requirement is available.",
+            "start": 4770,
+            "end": 4821,
+            "page_number": 3
+          },
+          {
+            "quote": "At least 25% post-consumer recycled material is expected.",
+            "source_quote": "At least 25% post-consumer recycled material is expected.",
+            "start": 4845,
+            "end": 4902,
+            "page_number": 3
+          },
+          {
+            "quote": "Feedstock origin and traceability must be documented.",
+            "source_quote": "Feedstock origin and traceability must be documented.",
+            "start": 4903,
+            "end": 4956,
+            "page_number": 3
+          },
+          {
+            "quote": "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+            "source_quote": "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+            "start": 4957,
+            "end": 5079,
+            "page_number": 3
+          },
+          {
+            "quote": "The visible surface should remain black and matte.",
+            "source_quote": "The visible surface should remain black and matte.",
+            "start": 1086,
+            "end": 1136,
+            "page_number": 1
+          },
+          {
+            "quote": "Component cost should not increase by more than approximately 5%.",
+            "source_quote": "Component cost should not increase by more than approximately 5%.",
+            "start": 1211,
+            "end": 1276,
+            "page_number": 1
+          },
+          {
+            "quote": "The existing mould and assembly line should preferably be reused.",
+            "source_quote": "The existing mould and assembly line should preferably be reused.",
+            "start": 1141,
+            "end": 1206,
+            "page_number": 1
+          },
+          {
+            "quote": "The new material must have a tensile strength of at least 140 MPa.",
+            "source_quote": "The new material must have a tensile strength of at least 140 MPa.",
+            "start": 5096,
+            "end": 5162,
+            "page_number": 3
+          },
+          {
+            "quote": "This value was copied from a supplier presentation. No internal analysis has established a relationship between this value and battery-latch performance.",
+            "source_quote": "This value was copied from a supplier presentation. No internal analysis has established a relationship between this\nvalue and battery-latch performance.",
+            "start": 5163,
+            "end": 5316,
+            "page_number": 3
+          },
+          {
+            "quote": "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the cracking and prevent accidental battery release.”",
+            "source_quote": "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the\ncracking and prevent accidental battery release.”",
+            "start": 5337,
+            "end": 5498,
+            "page_number": 3
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[1]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "No acceptable deformation limit has been defined.",
+            "source_quote": "No acceptable deformation limit has been defined.",
+            "start": 4274,
+            "end": 4323,
+            "page_number": 2
+          },
+          {
+            "quote": "No validated numerical stiffness or strength target exists.",
+            "source_quote": "No validated numerical stiffness or strength target exists.",
+            "start": 4324,
+            "end": 4383,
+            "page_number": 2
+          },
+          {
+            "quote": "The insertion and removal forces were not measured.",
+            "source_quote": "The insertion and removal forces were not measured.",
+            "start": 3118,
+            "end": 3169,
+            "page_number": 2
+          },
+          {
+            "quote": "The latch should also feel easier to operate because some users complain that the current release force is too high.",
+            "source_quote": "The latch should also feel easier to operate because some users complain that the current release force is too high.",
+            "start": 3880,
+            "end": 3996,
+            "page_number": 2
+          },
+          {
+            "quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "source_quote": "A reduction in battery-release force of approximately 20% would improve usability.",
+            "start": 846,
+            "end": 928,
+            "page_number": 1
+          },
+          {
+            "quote": "The new part must still look black, matte, and robust.",
+            "source_quote": "The new part must still look black, matte, and robust.",
+            "start": 3997,
+            "end": 4051,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[2]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The actual operating temperature at the moment of failure is unknown.",
+            "source_quote": "The actual operating temperature at the moment of failure is unknown.",
+            "start": 2482,
+            "end": 2551,
+            "page_number": 2
+          },
+          {
+            "quote": "The product age, impact history, and battery-removal frequency are unknown.",
+            "source_quote": "The product age, impact history, and battery-removal frequency are unknown.",
+            "start": 2556,
+            "end": 2631,
+            "page_number": 2
+          },
+          {
+            "quote": "Screw torque is not systematically recorded.",
+            "source_quote": "Screw torque is not systematically recorded.",
+            "start": 3475,
+            "end": 3519,
+            "page_number": 2
+          },
+          {
+            "quote": "Battery insertion force is not recorded.",
+            "source_quote": "Battery insertion force is not recorded.",
+            "start": 3524,
+            "end": 3564,
+            "page_number": 2
+          },
+          {
+            "quote": "Dimensional variation between battery suppliers has not been measured.",
+            "source_quote": "Dimensional variation between battery suppliers has not been measured.",
+            "start": 3695,
+            "end": 3765,
+            "page_number": 2
+          },
+          {
+            "quote": "The geometry around the flexible latch arm is still under review.",
+            "source_quote": "The geometry around the flexible latch arm is still under review.",
+            "start": 1281,
+            "end": 1346,
+            "page_number": 1
+          },
+          {
+            "quote": "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual moulding stress, excessive battery insertion force, assembly conditions, or a combination.",
+            "source_quote": "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual\nmoulding stress, excessive battery insertion force, assembly conditions, or a combination.",
+            "start": 4069,
+            "end": 4273,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[3]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+            "source_quote": "Current material\nImpact-modified ABS; exact grade unknown\nPartially known",
+            "start": 1536,
+            "end": 1609,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material density\nUnknown\nNot available",
+            "source_quote": "Current material density\nUnknown\nNot available",
+            "start": 1610,
+            "end": 1656,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+            "source_quote": "Current material price\nApproximately EUR 2.60/kg\nEstimate",
+            "start": 1657,
+            "end": 1714,
+            "page_number": 1
+          },
+          {
+            "quote": "No standardised material-specimen data is available for the current ABS grade.",
+            "source_quote": "No standardised material-specimen data is available for the current ABS grade.",
+            "start": 2005,
+            "end": 2083,
+            "page_number": 1
+          },
+          {
+            "quote": "Large changes in shrinkage may cause dimensional or assembly problems.",
+            "source_quote": "Large changes in shrinkage may cause dimensional or assembly problems.",
+            "start": 4537,
+            "end": 4607,
+            "page_number": 3
+          },
+          {
+            "quote": "No validated minimum-flow requirement is available.",
+            "source_quote": "No validated minimum-flow requirement is available.",
+            "start": 4770,
+            "end": 4821,
+            "page_number": 3
+          },
+          {
+            "quote": "Current cycle time\n29 seconds\nConfirmed",
+            "source_quote": "Current cycle time\n29 seconds\nConfirmed",
+            "start": 1852,
+            "end": 1891,
+            "page_number": 1
+          },
+          {
+            "quote": "A cycle-time increase above 8% should be avoided.",
+            "source_quote": "A cycle-time increase above 8% should be avoided.",
+            "start": 4720,
+            "end": 4769,
+            "page_number": 3
+          },
+          {
+            "quote": "Component cost should not increase by more than approximately 5%.",
+            "source_quote": "Component cost should not increase by more than approximately 5%.",
+            "start": 1211,
+            "end": 1276,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[4]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The supplier has not tested the proposed grade in the current mould.",
+            "source_quote": "The supplier has not tested the proposed grade in the current mould.",
+            "start": 5524,
+            "end": 5592,
+            "page_number": 3
+          },
+          {
+            "quote": "No finished latch components have been produced from the material.",
+            "source_quote": "No finished latch components have been produced from the material.",
+            "start": 5597,
+            "end": 5663,
+            "page_number": 3
+          },
+          {
+            "quote": "No low-temperature component-level evidence has been supplied.",
+            "source_quote": "No low-temperature component-level evidence has been supplied.",
+            "start": 5668,
+            "end": 5730,
+            "page_number": 3
+          },
+          {
+            "quote": "No data has been provided concerning battery-release force.",
+            "source_quote": "No data has been provided concerning battery-release force.",
+            "start": 5735,
+            "end": 5794,
+            "page_number": 3
+          },
+          {
+            "quote": "The proposed grade's recycled content has not been confirmed.",
+            "source_quote": "The proposed grade's recycled content has not been confirmed.",
+            "start": 5799,
+            "end": 5860,
+            "page_number": 3
+          },
+          {
+            "quote": "No appearance samples have been supplied.",
+            "source_quote": "No appearance samples have been supplied.",
+            "start": 5865,
+            "end": 5906,
+            "page_number": 3
+          },
+          {
+            "quote": "The supplier has not estimated the effect on cycle time, mould wear, or component cost.",
+            "source_quote": "The supplier has not estimated the effect on cycle time, mould wear, or component cost.",
+            "start": 5911,
+            "end": 5998,
+            "page_number": 3
+          },
+          {
+            "quote": "The presentation does not identify:\n the original source;\n \n a specific material grade;\n \n test methods;\n \n environmental conditions;\n \n moisture-conditioning state;\n \n component geometry;\n \n or application-specific evidence.",
+            "source_quote": "The presentation does not identify:\n the original source;\n \n a specific material grade;\n \n test methods;\n \n environmental conditions;\n \n moisture-conditioning state;\n \n component geometry;\n \n or application-specific evidence.",
+            "start": 6177,
+            "end": 6409,
+            "page_number": 3
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[1]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Reliability is the first priority. The battery must not release accidentally.",
+            "source_quote": "Reliability is the first priority. The battery must not release accidentally.",
+            "start": 3802,
+            "end": 3879,
+            "page_number": 2
+          },
+          {
+            "quote": "The latch should also feel easier to operate because some users complain that the current release force is too high.",
+            "source_quote": "The latch should also feel easier to operate because some users complain that the current release force is too high.",
+            "start": 3880,
+            "end": 3996,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[2]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "At least 25% post-consumer recycled material is expected.",
+            "source_quote": "At least 25% post-consumer recycled material is expected.",
+            "start": 4845,
+            "end": 4902,
+            "page_number": 3
+          },
+          {
+            "quote": "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+            "source_quote": "Recycled content should not be accepted if it significantly reduces durability or causes unacceptable process variability.",
+            "start": 4957,
+            "end": 5079,
+            "page_number": 3
+          },
+          {
+            "quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "source_quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "start": 1937,
+            "end": 2004,
+            "page_number": 1
+          },
+          {
+            "quote": "A cycle-time increase above 8% should be avoided.",
+            "source_quote": "A cycle-time increase above 8% should be avoided.",
+            "start": 4720,
+            "end": 4769,
+            "page_number": 3
+          },
+          {
+            "quote": "Component cost should not increase by more than approximately 5%.",
+            "source_quote": "Component cost should not increase by more than approximately 5%.",
+            "start": 1211,
+            "end": 1276,
+            "page_number": 1
+          },
+          {
+            "quote": "The visible surface should remain black and matte.",
+            "source_quote": "The visible surface should remain black and matte.",
+            "start": 1086,
+            "end": 1136,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[3]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The new material must have a tensile strength of at least 140 MPa.",
+            "source_quote": "The new material must have a tensile strength of at least 140 MPa.",
+            "start": 5096,
+            "end": 5162,
+            "page_number": 3
+          },
+          {
+            "quote": "This value was copied from a supplier presentation. No internal analysis has established a relationship between this value and battery-latch performance.",
+            "source_quote": "This value was copied from a supplier presentation. No internal analysis has established a relationship between this\nvalue and battery-latch performance.",
+            "start": 5163,
+            "end": 5316,
+            "page_number": 3
+          },
+          {
+            "quote": "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the cracking and prevent accidental battery release.”",
+            "source_quote": "“We recommend a 30% glass-fibre-reinforced PA66. Its tensile strength exceeds 150 MPa, so it will eliminate the\ncracking and prevent accidental battery release.”",
+            "start": 5337,
+            "end": 5498,
+            "page_number": 3
+          },
+          {
+            "quote": "The supplier has not tested the proposed grade in the current mould.",
+            "source_quote": "The supplier has not tested the proposed grade in the current mould.",
+            "start": 5524,
+            "end": 5592,
+            "page_number": 3
+          },
+          {
+            "quote": "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual moulding stress, excessive battery insertion force, assembly conditions, or a combination.",
+            "source_quote": "The root cause may involve low-temperature material behaviour, the sharp geometry at the latch-arm root, residual\nmoulding stress, excessive battery insertion force, assembly conditions, or a combination.",
+            "start": 4069,
+            "end": 4273,
+            "page_number": 2
+          },
+          {
+            "quote": "Abrasive reinforcements may increase mould wear.",
+            "source_quote": "Abrasive reinforcements may increase mould wear.",
+            "start": 4671,
+            "end": 4719,
+            "page_number": 3
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      }
+    ]
+  },
+  "known_limitations": [
+    "Mechanical revalidation proves exact citation, source-reference and numeric provenance rules; it does not prove engineering correctness.",
+    "The model critic is not rerun over human revisions; any semantic evaluation is a separate supporting artifact and is not part of this review record.",
+    "Approval records one reviewer decision and is not independent multi-reviewer sign-off."
+  ]
+}

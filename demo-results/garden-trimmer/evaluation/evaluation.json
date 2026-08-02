@@ -1,0 +1,128 @@
+{
+  "schema_version": "compoundx.semantic-evaluation.v2",
+  "case_name": "Cordless garden-trimmer battery latch",
+  "source_sha256": "9f2feaae87dae2c6d896882ac4758174f9b8cb28e39db5dca6e41544eb7368a6",
+  "report_sha256": "b18a1c04e782b76600b1b68550084045b988335ea9b8fd1e8481ea202ecd2e2c",
+  "report_path": "section-reviews/20260802T221126000000Z-finalize-approved_with_corrections-b18a1c04e7/review.json",
+  "evaluated_at": "2026-08-02T22:11:27Z",
+  "evaluation_method": "model_assisted",
+  "evaluator": "OpenAI Codex (supporting evaluation; not human review)",
+  "scores": [
+    {
+      "criterion": "product_intent_preserves_priorities",
+      "score": 5,
+      "rationale": "The reviewed intent preserves retention reliability ahead of release-force usability.",
+      "report_evidence": [
+        "reviewed_dossier.product_intent.text"
+      ]
+    },
+    {
+      "criterion": "component_function_is_clear",
+      "score": 5,
+      "rationale": "The function states battery retention and manual release without prescribing material properties.",
+      "report_evidence": [
+        "reviewed_dossier.component_function.text"
+      ]
+    },
+    {
+      "criterion": "performance_is_observable",
+      "score": 5,
+      "rationale": "The section is future-facing and now retains direct objectives plus the manual insertion/removal context of the historical observation.",
+      "report_evidence": [
+        "reviewed_dossier.performance_to_validate.text",
+        "sections.performance_to_validate.rationale"
+      ]
+    },
+    {
+      "criterion": "material_criteria_are_cautious",
+      "score": 4,
+      "rationale": "The section preserves visible-surface scope and the qualified cost statement while keeping copied strength claims visibly unsupported.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria.text",
+        "sections.material_relevant_criteria.rationale"
+      ]
+    },
+    {
+      "criterion": "missing_information_is_complete",
+      "score": 5,
+      "rationale": "The list now includes direct objective support and a standardized exposure, cold-use cycling and controls protocol gap.",
+      "report_evidence": [
+        "reviewed_dossier.missing_information[0]",
+        "reviewed_dossier.missing_information[4]"
+      ]
+    },
+    {
+      "criterion": "tradeoffs_are_represented",
+      "score": 5,
+      "rationale": "Retention versus usability and sustainability, process, cost, appearance and mould-reuse tensions remain explicit and unresolved.",
+      "report_evidence": [
+        "reviewed_dossier.conflicts_and_tradeoffs"
+      ]
+    },
+    {
+      "criterion": "evidence_is_traceable",
+      "score": 5,
+      "rationale": "Every reviewed content object passes exact citation and numeric provenance checks.",
+      "report_evidence": [
+        "validation.contents"
+      ]
+    },
+    {
+      "criterion": "output_is_concise_and_readable",
+      "score": 4,
+      "rationale": "The dossier is coherent and reviewable, with unavoidable density in the industrial screening criteria.",
+      "report_evidence": [
+        "reviewed_dossier"
+      ]
+    }
+  ],
+  "adversarial_checks": [
+    {
+      "check_id": "copied_strength_not_requirement",
+      "expectation": "The copied 140 MPa strength value must not become a validated latch requirement.",
+      "observed_treatment": "It is explicitly described as copied and unrelated to validated latch performance.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria.text",
+        "reviewed_dossier.conflicts_and_tradeoffs[2]"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "supplier_pa66_not_selected",
+      "expectation": "The supplier PA66 proposal and performance promise must not become a selection.",
+      "observed_treatment": "The recommendation remains a proposal without current-mould or component evidence.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria.text"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "qualifier_force_preserved",
+      "expectation": "Visible-surface scope and the approximate should-not-increase cost wording must remain qualified.",
+      "observed_treatment": "Both qualifiers are explicit in the reviewed material criteria.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria.text"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "historical_observation_context",
+      "expectation": "The cold observation must retain repeated manual battery insertion/removal and protocol limitations.",
+      "observed_treatment": "The reviewed performance section records the manual cycling and missing controls and standardization.",
+      "report_evidence": [
+        "reviewed_dossier.performance_to_validate.text"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "validation_protocol_gap_visible",
+      "expectation": "The missing future outdoor and cold-use protocol must be visible.",
+      "observed_treatment": "A dedicated reviewed missing-information point requests exposures, cycling and controls.",
+      "report_evidence": [
+        "reviewed_dossier.missing_information[4]"
+      ],
+      "passed": true
+    }
+  ],
+  "summary": "PASS as a model-assisted supporting evaluation of the finalized human-reviewed artifact. The rubric neither changes deterministic eligibility nor independently confirms Nina Doinjashvili's human approval; it does not establish design safety."
+}

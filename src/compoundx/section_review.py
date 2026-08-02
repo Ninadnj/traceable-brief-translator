@@ -280,7 +280,8 @@ class SavedSectionReview:
 KNOWN_SECTION_REVIEW_LIMITATIONS = (
     "Mechanical revalidation proves exact citation, source-reference and numeric "
     "provenance rules; it does not prove engineering correctness.",
-    "The model critic and semantic evaluation are not rerun over human revisions.",
+    "The model critic is not rerun over human revisions; any semantic evaluation "
+    "is a separate supporting artifact and is not part of this review record.",
     "Approval records one reviewer decision and is not independent multi-reviewer "
     "sign-off.",
 )
@@ -524,7 +525,8 @@ def render_combined_markdown(
     lines.extend(["", "## Known limitations", ""])
     lines.extend(f"- {item}" for item in artifact.known_limitations)
     lines.append("")
-    return "\n".join(lines)
+    rendered = "\n".join(lines)
+    return "\n".join(line.rstrip() for line in rendered.split("\n"))
 
 
 @dataclass(frozen=True)

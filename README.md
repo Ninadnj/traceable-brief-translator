@@ -39,11 +39,13 @@ streamlit run streamlit_app.py
 
 **No API key is needed to explore the demonstration.** With no live run in the
 session, the app loads a saved report from `demo-results/`. Both cases contain
-fresh, mechanically eligible live-model reports. Their Review tabs open new,
-unstarted review chains and their Final report tabs remain empty until a person
-completes review. A key is required only to translate a *new* brief; it is read
-from the browser session, never written to an artifact, and redacted from any
-error text that gets persisted.
+fresh, mechanically eligible live-model reports and completed human-review
+chains. The Review tab shows the finalized, read-only decision by Nina
+Doinjashvili; the Final report tab presents the reviewed JSON and PDF plus the
+separately labelled model-assisted rubric. The repository also ships every
+parent snapshot and the final hash manifest. A key is required only to translate
+a *new* brief; it is read from the browser session, never written to an artifact,
+and redacted from any error text that gets persisted.
 
 For a live run from the command line:
 
@@ -89,12 +91,14 @@ flowchart TB
     SR["section_review.py<br/>six independent decisions;<br/>every correction needs a rationale"]:::human
     RV["verify_dossier rerun over the edited dossier<br/>on every save"]:::code
     FIN["final review.json + review.md + review.pdf<br/>+ manifest.json of content hashes"]:::io
+    EVAL["evaluation/evaluation.json + evaluation.md<br/>model-assisted rubric; supporting and non-gating"]:::model
 
     PDF --> LOAD --> T --> D --> V --> R
     R -->|"yes; at most once"| FIX --> V
     R -->|"no; validation is an input"| C
     C --> F --> VC --> REP --> POL --> SR --> RV --> FIN
     RV -->|"any invalid content blocks approval"| SR
+    FIN -.->|"one-way, hash-linked supporting evaluation"| EVAL
 
     subgraph legend["Legend"]
         direction LR
@@ -147,7 +151,16 @@ rendering of the same data.
 **Review.** A reviewer approves, corrects or flags each of the six sections
 independently. Each save is a new immutable snapshot linked to its parent by
 hash, and the whole edited dossier is re-verified on every save. Finalising
-requires all six decisions plus a written decision rationale.
+requires all six decisions plus a written decision rationale. Both shipped
+cases contain six section saves followed by one finalized
+`approved_with_corrections` record by Nina Doinjashvili; their reviewed dossiers
+revalidate with zero errors.
+
+**Evaluate separately.** A disclosed model-assisted rubric may evaluate the
+canonical finalized review after the human decision. It links to that exact
+`review.json` by a run-relative path and SHA-256, but it is a one-way supporting
+child: it neither participates in mechanical eligibility nor changes or
+independently confirms the human decision.
 
 ## Deterministic vs model judgement
 
@@ -160,9 +173,9 @@ requires all six decisions plus a written decision rationale.
 | Are there six sections, at least one citation each, and exactly one critic finding per section? | Code | Pydantic contracts plus `verify_critic` |
 | Is the external snapshot the one that was cited? | Code | SHA-256 computed by the loader, not supplied by the caller or the model |
 | Does the citation actually *entail* the sentence built on it? | Human | Not proven by code; the critic only proposes |
-| Is a qualifier's force preserved — "preferred" still preferred, not mandatory? | Model; human confirmation pending | Prompt constraints plus the critic's typed `qualifier_force` finding; the refreshed reports expose detected shifts directly |
-| Is the dossier decision-useful and correctly levelled? | Critic proposal; human decision | Structured support assessment and issue types guide review; `SEMANTIC_RUBRIC.md` remains available for a separate evaluation |
-| Does this run pass, and is this review approved? | Code derives, human decides | `overall_pass` and `overall_status` are computed from the inputs and cannot be supplied by the evaluator or reviewer |
+| Is a qualifier's force preserved — "preferred" still preferred, not mandatory? | Model proposal; human decision | Prompt constraints and typed critic findings exposed the shifts; Nina Doinjashvili corrected and approved both published reviewed dossiers |
+| Is the dossier decision-useful and correctly levelled? | Critic proposal; human decision; separate supporting rubric | Structured findings guide review; the published model-assisted rubric evaluates the finalized reviewed JSON without becoming an approval gate |
+| Does this run pass, and is this review approved? | Code derives status; human supplies decisions | Rubric `overall_pass` and review `overall_status` are computed from their inputs; neither can be supplied directly by the evaluator or reviewer |
 | Is this material suitable? | Out of scope | The system produces criteria and open questions, not a material choice |
 
 ## Trust and provenance model
@@ -277,18 +290,21 @@ flowchart TB
     SRC["source/ the brief PDF<br/>raw bytes, SHA-256 recorded in the report"]:::io
     RJ["acceptance/report.json<br/>the immutable base artifact"]:::io
     RM["acceptance/report.md"]:::io
-    R1["section-reviews/01-product-intent/review.json"]:::io
-    R2["section-reviews/02-component-function/review.json"]:::io
-    RN["... 03 performance, 04 material criteria,<br/>05 missing information, 06 trade-offs"]:::io
-    FR["section-reviews/final/review.json<br/>action = finalize, all six decisions,<br/>decision rationale required"]:::io
-    FM["final/review.md + review.pdf"]:::io
-    MAN["final/manifest.json<br/>SHA-256 of the reviewed artifact,<br/>the Markdown and the PDF"]:::io
+    R1["section-reviews/&lt;timestamp&gt;-save_section-<br/>product_intent-&lt;hash&gt;/review.json"]:::io
+    R2["section-reviews/&lt;timestamp&gt;-save_section-<br/>component_function-&lt;hash&gt;/review.json"]:::io
+    RN["... four more save_section directories,<br/>one for each remaining section"]:::io
+    FR["section-reviews/&lt;timestamp&gt;-finalize-<br/>approved_with_corrections-&lt;hash&gt;/review.json"]:::io
+    FM["same final directory:<br/>review.md + review.pdf"]:::io
+    MAN["same final directory: manifest.json<br/>SHA-256 of JSON, Markdown and PDF"]:::io
+    EV["evaluation/evaluation.json + evaluation.md<br/>run-relative final-review path + SHA-256"]:::io
 
     SRC -->|"source_sha256"| RJ
     RJ --> RM
     RJ -->|"accepted_report_sha256 + source_sha256<br/>carried by every review"| R1
     R1 -->|"parent_review.sha256"| R2 -->|"parent_review.sha256"| RN -->|"parent_review.sha256"| FR
-    FR --> FM --> MAN
+    FR --> FM
+    FR --> MAN
+    FR -.->|"one-way supporting child; never a gate or parent"| EV
 
     classDef io fill:#e5e7eb,stroke:#4b5563,stroke-width:1px,color:#1f2937;
 ```
@@ -300,8 +316,11 @@ hash, the source hash and its parent's hash, so the chain is checkable without
 trusting any single file. Reviews are written to new directories and never
 overwritten. `review.md` and `review.pdf` are deterministic renderings of
 `review.json`; the manifest exists so a reader can confirm the PDF they were
-handed matches the JSON audit record. The current demonstrations have no active
-review chain yet.
+handed matches the JSON audit record. Directory names carry the timestamp,
+action, section or terminal-status qualifier, and a content-hash prefix. Each
+current demonstration contains six parent-linked `save_section` snapshots and
+one terminal `finalize` snapshot. Its evaluation is a hash-linked child of the
+terminal JSON only; it cannot reopen or extend the review chain.
 
 ## Demonstrations
 
@@ -312,14 +331,27 @@ review chain yet.
 | Deterministic validation | 12 of 12 contents valid, 0 errors | 11 of 11 contents valid, 0 errors |
 | Critic contract validation | 0 errors | 0 errors |
 | Semantic critic | 4 sections marked `revise`; 1 added missing-information point | 3 sections marked `revise`; 1 added missing-information point |
-| Human review | not started for the refreshed report | not started for the refreshed report |
+| Human review | Nina Doinjashvili; 6 saves; `approved_with_corrections` | Nina Doinjashvili; 6 saves; `approved_with_corrections` |
+| Reviewed-dossier validation | 13 of 13 contents valid, 0 errors | 12 of 12 contents valid, 0 errors |
+| Final deliverables | reviewed JSON, Markdown, PDF and hash manifest | reviewed JSON, Markdown, PDF and hash manifest |
+| Separate semantic rubric | model-assisted; 4.75/5 mean; all adversarial checks pass | model-assisted; 4.75/5 mean; all adversarial checks pass |
 
 Both reports were generated live with `gpt-5.6-sol` on 2026-08-02 using the same
 code and prompts. They demonstrate the intended hybrid boundary: deterministic
 checks prove exact quotation and same-object numeric provenance, while the AI
 critic identifies claim-level evidence gaps, qualifier changes, omissions and
-over-broad wording. A semantic revision request does not make the report
-mechanically invalid; it makes the unresolved human judgement visible.
+over-broad wording. Nina Doinjashvili reviewed those findings, corrected the
+affected sections, added one missing-information item per case, and approved
+both dossiers. The base model reports and critic findings remain unchanged in
+the lineage; the reviewed dossiers contain 13 and 12 valid content objects
+respectively.
+
+Each finalized reviewed JSON was then scored as a separate, explicitly
+`model_assisted` supporting evaluation. Both use criterion scores
+`[5, 5, 5, 4, 5, 5, 5, 4]` (mean 4.75/5), pass every case-specific adversarial
+check, and therefore pass the rubric's computed rule. That result is not a
+second human approval, a mechanical semantic proof, or an input to review
+eligibility.
 
 ```bash
 python -c "import json;d=json.load(open('demo-results/garden-trimmer/acceptance/report.json'));\
@@ -338,7 +370,11 @@ it runs identically on a laptop and in CI. GitHub Actions
 (`.github/workflows/ci.yml`) runs it on Python 3.11 and 3.13 on every push and
 pull request, then re-verifies that both shipped demo artifacts still validate
 12/12 and 11/11, that both critic contracts validate, and that the package
-builds. The artifact check is there because
+builds. The test suite additionally walks both published seven-record review
+chains, checks every accepted-report/source/parent hash, rechecks each terminal
+status and reviewed dossier, verifies the final JSON/Markdown/PDF manifest and a
+readable PDF, and proves that each rubric targets that exact run-relative final
+review JSON and hash. The artifact checks are there because
 the demo results are this project's evidence: a change that silently breaks their
 citation or numeric provenance should fail the build, not the demo.
 
@@ -363,13 +399,21 @@ It covers:
   immutability, parent linking, required rationales, list add/remove/correct
   accounting, derived overall status, blocked approval on invalid content, and
   the final Markdown/PDF/manifest write.
-- `tests/test_semantic_evaluation.py` — every rubric criterion scored once and
-  `overall_pass` derived rather than supplied.
+- `tests/test_semantic_evaluation.py` — every rubric criterion scored once,
+  `overall_pass` derived rather than supplied, immutable writes, and rendered
+  evaluated-artifact identity.
+- `tests/test_published_demo_artifacts.py` — both shipped parent chains, terminal
+  status, reviewer, reviewed-dossier validation, manifest/PDF hashes, and exact
+  final-review-to-evaluation link.
 - `tests/test_demo_app.py`, `tests/test_cli_branding.py` — session-only key
-  handling, content-addressed saved sources, and CLI and repository invariants.
+  handling, content-addressed saved sources, immutable terminal-chain handling,
+  supporting-evaluation linking, and CLI and repository invariants.
 
-The shipped reports are mechanically eligible inputs to human review, not human
-engineering approvals. Their critic revisions are deliberately unresolved.
+The shipped base reports are mechanically eligible model outputs. Their linked
+terminal artifacts record one named human review and approval with corrections;
+their rubric artifacts are model-assisted supporting evidence only. None of
+these artifacts establishes design safety, physical root cause, or material
+suitability.
 
 ## Repository layout
 
@@ -396,8 +440,8 @@ src/compoundx/
   main.py                 the compoundx-demo CLI
   demo_app.py             Streamlit UI: Translate, Review, Final report, Verification
 demo-results/
-  roller-skate/           source PDF + fresh accepted live report
-  garden-trimmer/         source PDF + fresh accepted live report
+  roller-skate/           source + accepted report + 7-record review + final PDF + evaluation
+  garden-trimmer/         source + accepted report + 7-record review + final PDF + evaluation
 runs/                      live CLI and UI runs; gitignored, never mixed with the curated cases
 examples/external-sources/ illustrative frozen snapshot pack, clearly labelled as fabricated
 docs/EXTERNAL_KNOWLEDGE.md why retrieval is out of scope and what the pack format is
@@ -413,6 +457,8 @@ SEMANTIC_RUBRIC.md         the human-authored eight-criterion rubric
   correct. They prove that the words came from the source.
 - The model critic is not independent expert evaluation. Its support assessments
   remain proposals until a person reviews the exact source and translation.
+- The published semantic rubric is model-assisted supporting evidence, not an
+  independent engineering evaluation or a second human sign-off.
 - The prompt rules in `src/compoundx/prompts/` were generalised one step from
   defects observed on these two briefs, so the demonstrated behaviour is partly
   tuned to them and this repository cannot show how it generalises. A held-out

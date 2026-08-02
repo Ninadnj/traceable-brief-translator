@@ -107,6 +107,7 @@ def render_semantic_evaluation(evaluation: SemanticEvaluation) -> str:
         f"- Evaluation method: {evaluation.evaluation_method}",
         f"- Evaluator: {evaluation.evaluator}",
         f"- Evaluated: {evaluation.evaluated_at.isoformat()}",
+        f"- Evaluated artifact: `{evaluation.report_path}`",
         f"- Source SHA-256: `{evaluation.source_sha256}`",
         f"- Report SHA-256: `{evaluation.report_sha256}`",
         f"- Mean score: {evaluation.mean_score:.2f}/5",

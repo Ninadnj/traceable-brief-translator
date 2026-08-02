@@ -25,11 +25,13 @@ from compoundx.section_review import (
     ALL_SECTIONS,
     LIST_SECTIONS,
     NARRATIVE_SECTIONS,
+    FinalReviewManifest,
     ListItemReview,
     ListItemReviewStatus,
     ListSectionReview,
     NarrativeSectionReview,
     SectionReviewAction,
+    SectionReviewArtifact,
     SectionReviewLifecycleError,
     SectionReviewOutputExistsError,
     SectionReviewStatus,
@@ -40,6 +42,10 @@ from compoundx.section_review import (
     load_accepted_report,
     load_section_review,
     save_section_review,
+)
+from compoundx.semantic_evaluation import (
+    SemanticEvaluation,
+    load_semantic_evaluation,
 )
 from compoundx.schemas import (
     ContentValidation,
@@ -298,6 +304,170 @@ def load_accepted_demo(report_path: str | Path) -> SavedDemoRun:
         ),
         accepted_report_path=report_path,
     )
+
+
+def _select_terminal_review(
+    records: list[tuple[Path, SectionReviewArtifact]],
+    *,
+    accepted_report_sha256: str,
+    source_sha256: str,
+) -> tuple[Path, SectionReviewArtifact] | None:
+    """Select the newest terminal record for this exact accepted report.
+
+    A terminal record wins even if an invalid later save-section snapshot was
+    placed beside it. Finalization is a one-way lifecycle transition; the UI
+    must never turn a published chain back into an editable draft.
+    """
+
+    terminal = [
+        record
+        for record in records
+        if record[1].action is not SectionReviewAction.SAVE_SECTION
+        and record[1].accepted_report_sha256 == accepted_report_sha256
+        and record[1].source_sha256 == source_sha256
+    ]
+    if not terminal:
+        return None
+    return max(
+        terminal,
+        key=lambda record: (record[1].created_at, record[0].as_posix()),
+    )
+
+
+def _validate_terminal_review_chain(
+    *,
+    run_dir: Path,
+    accepted_report_path: Path,
+    accepted_report_sha256: str,
+    source_sha256: str,
+    terminal_path: Path,
+    terminal_artifact: SectionReviewArtifact,
+) -> None:
+    """Verify every immutable parent edge before trusting a terminal review."""
+
+    resolved_run = run_dir.resolve()
+    expected_report_path = accepted_report_path.resolve()
+    expected_report_relative = expected_report_path.relative_to(resolved_run).as_posix()
+    current_path = terminal_path.resolve()
+    current = terminal_artifact
+    seen: set[Path] = set()
+    first = True
+
+    while True:
+        try:
+            current_path.relative_to(resolved_run)
+        except ValueError as error:
+            raise ValueError("review chain points outside its run directory") from error
+        if current_path in seen:
+            raise ValueError("review chain contains a parent cycle")
+        seen.add(current_path)
+        if (
+            current.accepted_report_relative_path != expected_report_relative
+            or current.accepted_report_sha256 != accepted_report_sha256
+            or current.source_sha256 != source_sha256
+            or current.reviewer_id != terminal_artifact.reviewer_id
+        ):
+            raise ValueError("review chain does not match the selected accepted report")
+        if first:
+            if current.action is SectionReviewAction.SAVE_SECTION:
+                raise ValueError("selected review is not terminal")
+        elif current.action is not SectionReviewAction.SAVE_SECTION:
+            raise ValueError("a terminal review may only have save-section ancestors")
+
+        parent = current.parent_review
+        if parent is None:
+            if first:
+                raise ValueError("terminal review is missing its parent snapshot")
+            return
+        parent_path = (resolved_run / parent.relative_path).resolve()
+        try:
+            parent_path.relative_to(resolved_run)
+        except ValueError as error:
+            raise ValueError(
+                "review parent points outside its run directory"
+            ) from error
+        if not parent_path.is_file():
+            raise ValueError(f"review parent is missing: {parent.relative_path}")
+        parent_bytes = parent_path.read_bytes()
+        if hashlib.sha256(parent_bytes).hexdigest() != parent.sha256:
+            raise ValueError(f"review parent hash mismatch: {parent.relative_path}")
+        current_path = parent_path
+        current = load_section_review(parent_path)
+        first = False
+
+
+def _load_linked_supporting_evaluation(
+    *,
+    run_dir: Path,
+    final_review_path: Path,
+    source_sha256: str,
+) -> SemanticEvaluation | None:
+    """Load the one optional rubric and prove which reviewed JSON it evaluates."""
+
+    evaluation_path = run_dir / "evaluation" / "evaluation.json"
+    if not evaluation_path.is_file():
+        return None
+    evaluation = load_semantic_evaluation(evaluation_path)
+    if evaluation.evaluation_method != "model_assisted":
+        raise ValueError(
+            "published supporting evaluation must declare model_assisted method"
+        )
+
+    resolved_run = run_dir.resolve()
+    expected_review_path = final_review_path.resolve()
+    recorded_path = Path(evaluation.report_path)
+    if recorded_path.is_absolute():
+        raise ValueError("supporting evaluation report_path must be run-relative")
+    resolved_recorded_path = (resolved_run / recorded_path).resolve()
+    try:
+        resolved_recorded_path.relative_to(resolved_run)
+    except ValueError as error:
+        raise ValueError(
+            "supporting evaluation report_path points outside the selected run"
+        ) from error
+    if resolved_recorded_path != expected_review_path:
+        raise ValueError(
+            "supporting evaluation does not target the selected final review JSON"
+        )
+    review_sha256 = hashlib.sha256(final_review_path.read_bytes()).hexdigest()
+    if evaluation.report_sha256 != review_sha256:
+        raise ValueError(
+            "supporting evaluation report hash does not match final review"
+        )
+    if evaluation.source_sha256 != source_sha256:
+        raise ValueError(
+            "supporting evaluation source hash does not match final review"
+        )
+    return evaluation
+
+
+def _validate_final_review_outputs(review_path: Path) -> tuple[Path, Path]:
+    """Verify the published Markdown and PDF against the final manifest."""
+
+    manifest_path = review_path.with_name("manifest.json")
+    manifest = FinalReviewManifest.model_validate_json(
+        manifest_path.read_text(encoding="utf-8")
+    )
+    markdown_path = review_path.with_name("review.md")
+    pdf_path = review_path.with_name("review.pdf")
+    if (
+        manifest.json_path != review_path.name
+        or manifest.markdown_path != markdown_path.name
+        or manifest.pdf_path != pdf_path.name
+    ):
+        raise ValueError("final review manifest names do not match published outputs")
+    expected_hashes = (
+        (review_path, manifest.reviewed_artifact_sha256),
+        (markdown_path, manifest.markdown_sha256),
+        (pdf_path, manifest.pdf_sha256),
+    )
+    for path, expected in expected_hashes:
+        if not path.is_file():
+            raise ValueError(f"final review output is missing: {path.name}")
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise ValueError(f"final review output hash mismatch: {path.name}")
+    return markdown_path, pdf_path
 
 
 def main() -> None:
@@ -621,9 +791,8 @@ def _render_translate_tab() -> SavedDemoRun | None:
                         "history."
                     ),
                 )
-                # Only one of the two curated cases carries a completed review
-                # chain, so the caption is written after the selection rather
-                # than promising a review history every case has.
+                # The caption follows the selected case because live and curated
+                # runs can legitimately be at different review lifecycle states.
                 if any(
                     selected_report.parents[1].glob("section-reviews/*/review.pdf")
                 ):
@@ -1084,19 +1253,56 @@ def _render_review_workflow(saved_run: SavedDemoRun) -> None:
         "and every saved section creates a new immutable review snapshot."
     )
     try:
-        accepted_report, _ = load_accepted_report(accepted_path)
+        accepted_report, accepted_report_sha256 = load_accepted_report(accepted_path)
     except (OSError, ValidationError, SectionReviewLifecycleError) as error:
         st.error(
             "This report is not eligible for human acceptance under the current "
             f"deterministic gates: {error}"
         )
         return
-    section_records = []
+    section_records: list[tuple[Path, SectionReviewArtifact]] = []
+    unreadable_terminal = False
     for path in list_section_reviews(saved_run.run_dir):
         try:
             section_records.append((path, load_section_review(path)))
         except (OSError, ValidationError, ValueError) as error:
             st.warning(f"Unreadable section-review artifact {path.name}: {error}")
+            unreadable_terminal = unreadable_terminal or (
+                path.with_name("review.pdf").is_file()
+                or "-finalize-" in path.parent.name
+                or "-reject-" in path.parent.name
+            )
+    terminal_record = _select_terminal_review(
+        section_records,
+        accepted_report_sha256=accepted_report_sha256,
+        source_sha256=accepted_report.source.sha256,
+    )
+    if terminal_record is not None:
+        terminal_path, terminal_artifact = terminal_record
+        try:
+            _validate_terminal_review_chain(
+                run_dir=saved_run.run_dir,
+                accepted_report_path=accepted_path,
+                accepted_report_sha256=accepted_report_sha256,
+                source_sha256=accepted_report.source.sha256,
+                terminal_path=terminal_path,
+                terminal_artifact=terminal_artifact,
+            )
+        except (OSError, ValidationError, ValueError) as error:
+            st.error(
+                "A terminal human-review artifact exists, but its immutable "
+                f"parent chain could not be verified: {error}. The review stays "
+                "locked rather than reopening a finalized chain."
+            )
+            return
+        _render_terminal_review_summary(terminal_path, terminal_artifact)
+        return
+    if unreadable_terminal:
+        st.error(
+            "A terminal human-review artifact exists but could not be read. "
+            "The review stays locked rather than reopening a finalized chain."
+        )
+        return
     active_records = [
         record
         for record in section_records
@@ -1209,6 +1415,44 @@ def _render_review_workflow(saved_run: SavedDemoRun) -> None:
         active_artifact=active_artifact,
         reviewer_id=reviewer_id,
         chain_key=chain_key,
+    )
+
+
+def _render_terminal_review_summary(
+    review_path: Path,
+    artifact: SectionReviewArtifact,
+) -> None:
+    """Present a published terminal decision without editable review controls."""
+
+    st.success(
+        "This human review is finalized and read-only. Its six section decisions "
+        "remain available in the parent-linked artifact chain; finalized chains "
+        "cannot be reopened or extended."
+    )
+    values = (
+        ("Review status", _ui_status(artifact.overall_status.value)),
+        ("Sections reviewed", "6/6"),
+        ("Reviewer", artifact.reviewer_id),
+        (
+            "Mechanical checks",
+            (
+                "All passed"
+                if artifact.validation.invalid_content_count == 0
+                else f"{artifact.validation.invalid_content_count} failed"
+            ),
+        ),
+    )
+    columns = st.columns(4)
+    for column, (label, value) in zip(columns, values, strict=True):
+        column.caption(label)
+        column.markdown(f"**{value}**")
+    if artifact.decision_rationale:
+        st.info(f"Reviewer decision: {artifact.decision_rationale}")
+    st.caption(
+        f"Finalized {_format_ui_timestamp(artifact.created_at)} · "
+        f"terminal JSON SHA-256 "
+        f"{hashlib.sha256(review_path.read_bytes()).hexdigest()[:12]}… · "
+        "Open Final report for the reviewed JSON and PDF."
     )
 
 
@@ -1732,20 +1976,28 @@ def _render_final_report_tab(saved_run: SavedDemoRun) -> None:
         "This is the engineering deliverable produced after translation, "
         "mechanical verification, criticism, and human section review."
     )
-    records = []
+    accepted_path = saved_run.accepted_report_path
+    if accepted_path is None:
+        st.info(
+            "No finalized reviewed report exists yet. Complete all six decisions "
+            "and finalize the dossier in Review."
+        )
+        _render_original_report_download(saved_run)
+        return
+    accepted_report_sha256 = hashlib.sha256(accepted_path.read_bytes()).hexdigest()
+    records: list[tuple[Path, SectionReviewArtifact]] = []
     for path in list_section_reviews(saved_run.run_dir):
         try:
             artifact = load_section_review(path)
         except (OSError, ValidationError, ValueError):
             continue
-        if artifact.action is not SectionReviewAction.SAVE_SECTION:
-            records.append((path, artifact))
-    complete_records = [
-        record
-        for record in records
-        if record[0].with_name("review.pdf").is_file()
-    ]
-    if not complete_records:
+        records.append((path, artifact))
+    terminal_record = _select_terminal_review(
+        records,
+        accepted_report_sha256=accepted_report_sha256,
+        source_sha256=saved_run.completed.report.source.sha256,
+    )
+    if terminal_record is None:
         st.info(
             "No finalized reviewed report exists yet. Complete all six decisions "
             "and finalize the dossier in Review."
@@ -1753,11 +2005,21 @@ def _render_final_report_tab(saved_run: SavedDemoRun) -> None:
         _render_original_report_download(saved_run)
         return
 
-    review_path, artifact = max(
-        complete_records,
-        key=lambda record: record[0].stat().st_mtime_ns,
-    )
-    pdf_path = review_path.with_name("review.pdf")
+    review_path, artifact = terminal_record
+    try:
+        _validate_terminal_review_chain(
+            run_dir=saved_run.run_dir,
+            accepted_report_path=accepted_path,
+            accepted_report_sha256=accepted_report_sha256,
+            source_sha256=saved_run.completed.report.source.sha256,
+            terminal_path=review_path,
+            terminal_artifact=artifact,
+        )
+        _, pdf_path = _validate_final_review_outputs(review_path)
+    except (OSError, ValidationError, ValueError) as error:
+        st.error(f"The final reviewed deliverable could not be verified: {error}")
+        _render_original_report_download(saved_run)
+        return
     section_reviews = [artifact.sections.get(section) for section in ALL_SECTIONS]
     corrected_sections = sum(
         review.status is SectionReviewStatus.CORRECTED
@@ -1828,6 +2090,85 @@ def _render_final_report_tab(saved_run: SavedDemoRun) -> None:
         key=f"model-json-{review_path.parent.name}",
         width="stretch",
     )
+    _render_linked_supporting_evaluation(
+        run_dir=saved_run.run_dir,
+        final_review_path=review_path,
+        source_sha256=artifact.source_sha256,
+        reviewer_id=artifact.reviewer_id,
+    )
+
+
+def _render_linked_supporting_evaluation(
+    *,
+    run_dir: Path,
+    final_review_path: Path,
+    source_sha256: str,
+    reviewer_id: str,
+) -> None:
+    try:
+        evaluation = _load_linked_supporting_evaluation(
+            run_dir=run_dir,
+            final_review_path=final_review_path,
+            source_sha256=source_sha256,
+        )
+    except (OSError, ValidationError, ValueError) as error:
+        st.warning(
+            "The optional semantic evaluation was not shown because its link to "
+            f"this final review could not be verified: {error}"
+        )
+        return
+    if evaluation is None:
+        return
+
+    st.markdown("### Model-assisted supporting evidence")
+    st.info(
+        "This rubric is supporting evidence only. It is separate from the "
+        f"deterministic eligibility gate and from {reviewer_id}'s human "
+        "review decision; its scores never change either status."
+    )
+    st.caption(
+        f"Evaluator: {evaluation.evaluator} · "
+        f"Evaluated {_format_ui_timestamp(evaluation.evaluated_at)} · "
+        f"Exact reviewed JSON SHA-256 {evaluation.report_sha256[:12]}…"
+    )
+    overview = st.columns(3)
+    overview[0].metric(
+        "Supporting rubric result",
+        "PASS" if evaluation.overall_pass else "FAIL",
+        border=True,
+    )
+    overview[1].metric(
+        "Mean rubric score",
+        f"{evaluation.mean_score:.2f}/5",
+        border=True,
+    )
+    overview[2].metric(
+        "Adversarial checks",
+        f"{sum(check.passed for check in evaluation.adversarial_checks)}/"
+        f"{len(evaluation.adversarial_checks)}",
+        border=True,
+    )
+    with st.expander("Supporting semantic rubric", expanded=False):
+        st.dataframe(
+            [
+                {
+                    "Criterion": _ui_status(score.criterion.value),
+                    "Score": f"{score.score}/5",
+                    "Rationale": score.rationale,
+                }
+                for score in evaluation.scores
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+    with st.expander("Supporting adversarial checks", expanded=False):
+        for check in evaluation.adversarial_checks:
+            st.markdown(
+                f"**{'PASS' if check.passed else 'FAIL'} · "
+                f"{_ui_status(check.check_id)}**"
+            )
+            st.write(check.observed_treatment)
+    st.caption(evaluation.summary)
 
 
 def _render_original_report_download(saved_run: SavedDemoRun) -> None:
@@ -1886,83 +2227,62 @@ def _render_verification_tab(saved_run: SavedDemoRun | None) -> None:
             border=True,
             help="Sections the critic flagged as requiring human resolution.",
         )
-        st.caption(
-            "The refreshed demonstrations preserve mechanically eligible model "
-            "reports. Human review has not started, and no superseded review "
-            "chain is presented as applying to these report hashes."
-        )
-
-    decision_paths = sorted(DEMO_RESULTS_ROOT.glob("*/decision/acceptance.json"))
-    if not decision_paths:
-        st.info("No saved altered-case acceptance record is available.")
-    for decision_path in decision_paths:
-        try:
-            decision = json.loads(decision_path.read_text(encoding="utf-8"))
-            evaluation = _find_evaluation(decision_path.parents[1], decision)
-        except (OSError, ValueError, json.JSONDecodeError) as error:
-            st.warning(f"Could not load altered-case evidence: {error}")
-            continue
-
-        st.markdown("### Altered-case result")
-        eligibility = decision["eligibility"]
-        outcome = str(decision["decision"])
-        if outcome.casefold() == "accepted":
-            st.success(
-                f"Acceptance decision: {outcome}, under the recorded eligibility "
-                "policy for this altered case."
+        terminal_review = None
+        accepted_path = saved_run.accepted_report_path
+        if accepted_path is not None:
+            review_records = []
+            for review_path in list_section_reviews(saved_run.run_dir):
+                try:
+                    review_records.append(
+                        (review_path, load_section_review(review_path))
+                    )
+                except (OSError, ValidationError, ValueError):
+                    continue
+            terminal_review = _select_terminal_review(
+                review_records,
+                accepted_report_sha256=hashlib.sha256(
+                    accepted_path.read_bytes()
+                ).hexdigest(),
+                source_sha256=report.source.sha256,
+            )
+        if terminal_review is None:
+            st.caption(
+                "The selected demonstration preserves a mechanically eligible "
+                "model report. Human review has not been finalized for this "
+                "exact report hash."
             )
         else:
-            st.error(f"Acceptance decision: {outcome}.")
-        altered = st.columns(4)
-        altered[0].metric(
-            "Mechanical errors",
-            eligibility["deterministic_error_count"],
-            border=True,
-        )
-        altered[1].metric(
-            "Adversarial checks",
-            f"{eligibility['adversarial_checks_passed']}/"
-            f"{eligibility['adversarial_check_count']}",
-            border=True,
-        )
-        altered[2].metric(
-            "Rubric minimum",
-            f"{eligibility['minimum_rubric_score']}/5",
-            border=True,
-            help="Lowest score across the human-authored semantic rubric.",
-        )
-        altered[3].metric(
-            "Rejected reruns", len(decision["rejected_runs"]), border=True
-        )
-        st.caption(
-            "Model-assisted semantic evaluation using a human-authored rubric; "
-            "independent human confirmation remains pending."
-        )
-
-        if evaluation is not None:
-            score_rows = [
-                {
-                    "Criterion": _ui_status(score["criterion"]),
-                    "Score": f"{score['score']}/5",
-                    "Rationale": score["rationale"],
-                }
-                for score in evaluation["scores"]
-            ]
-            with st.expander("Semantic rubric", expanded=True):
-                st.dataframe(score_rows, hide_index=True, width="stretch")
-            with st.expander("Adversarial checks", expanded=True):
-                for check in evaluation["adversarial_checks"]:
-                    if check["passed"]:
-                        st.success(f"Passed - {_ui_status(check['check_id'])}")
-                    else:
-                        st.error(f"Failed - {_ui_status(check['check_id'])}")
-                    st.write(check["observed_treatment"])
-
-        with st.expander("Rejected stochastic runs", expanded=True):
-            for rejected in decision["rejected_runs"]:
-                st.markdown(f"**{rejected['run_id']}**")
-                for reason in rejected["reasons"]:
-                    st.write(f"- {reason}")
+            terminal_path, terminal_artifact = terminal_review
+            try:
+                _validate_terminal_review_chain(
+                    run_dir=saved_run.run_dir,
+                    accepted_report_path=accepted_path,
+                    accepted_report_sha256=hashlib.sha256(
+                        accepted_path.read_bytes()
+                    ).hexdigest(),
+                    source_sha256=report.source.sha256,
+                    terminal_path=terminal_path,
+                    terminal_artifact=terminal_artifact,
+                )
+            except (OSError, ValidationError, ValueError) as error:
+                st.error(
+                    "The terminal human-review chain could not be verified: "
+                    f"{error}. Its supporting rubric is not shown."
+                )
+            else:
+                st.caption(
+                    "The selected model report is mechanically eligible and has an "
+                    "exactly linked terminal human-review artifact. The separate "
+                    "supporting rubric, when present, does not affect either status."
+                )
+                _render_linked_supporting_evaluation(
+                    run_dir=saved_run.run_dir,
+                    final_review_path=terminal_path,
+                    source_sha256=terminal_artifact.source_sha256,
+                    reviewer_id=terminal_artifact.reviewer_id,
+                )
+    else:
+        st.info("Select a saved or newly completed case to inspect its evidence.")
 
     with st.expander("Known limitations"):
         if saved_run is not None:
@@ -1976,19 +2296,9 @@ def _render_verification_tab(saved_run: SavedDemoRun | None) -> None:
             "provenance, not semantic entailment or engineering correctness."
         )
         st.write(
-            "- The model critic's support assessments are proposals and still "
-            "need independent human confirmation."
+            "- The model critic is not independent expert evaluation. The named "
+            "review records one person's decision, not multi-reviewer confirmation."
         )
-
-
-def _find_evaluation(run_dir: Path, decision: dict[str, Any]) -> dict[str, Any] | None:
-    expected_hash = decision.get("evaluation_sha256")
-    for path in sorted(run_dir.glob("evaluation/evaluation.json")):
-        content = path.read_bytes()
-        if expected_hash and hashlib.sha256(content).hexdigest() != expected_hash:
-            continue
-        return json.loads(content)
-    return None
 
 
 def _format_ui_timestamp(value: datetime) -> str:

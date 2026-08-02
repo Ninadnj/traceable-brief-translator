@@ -1,0 +1,9 @@
+{
+  "schema_version": "compoundx.section-review-manifest.v1",
+  "reviewed_artifact_sha256": "e0c508fdb9fbf5eff06970a5a9fe688a64b53e6f9d49f73ff94c13451cb37796",
+  "markdown_sha256": "afb10ac8f95d98b59a019b171c2f02c1fdac15d034db9b43bc7629a85d5f44fc",
+  "pdf_sha256": "a8cf6e7a9c022e1d363038dea8f8a1c4790e6fd30f0af24aacb30d83f9f44762",
+  "json_path": "review.json",
+  "markdown_path": "review.md",
+  "pdf_path": "review.pdf"
+}

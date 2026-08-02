@@ -1,0 +1,1294 @@
+{
+  "schema_version": "compoundx.section-review.v2",
+  "created_at": "2026-08-02T22:10:26Z",
+  "reviewer_id": "Nina Doinjashvili",
+  "action": "finalize",
+  "updated_section": null,
+  "decision_rationale": "Approved after correcting the omitted winter-cracking intent, local citation coverage, recycled-content verification gap, and qualifier force in the trade-offs.",
+  "accepted_report_relative_path": "acceptance/report.json",
+  "accepted_report_sha256": "3a00227fc8da9f5fa5495d86ea84eb56915e12dc6c6fb1025c0ae2d38dc92fb0",
+  "source_sha256": "43b394906f3fc409e977a2e3462c65d8c778ec159489e5dd10ea3b15b81f7300",
+  "parent_review": {
+    "relative_path": "section-reviews/20260802T221025000000Z-save_section-conflicts_and_tradeoffs-45f5d9ed3f/review.json",
+    "sha256": "45f5d9ed3f56f6c5de551341cfdc1ebdcaeac2b4ce9d21960b3665a8a96628c2"
+  },
+  "sections": {
+    "product_intent": {
+      "section": "product_intent",
+      "status": "corrected",
+      "model_content": {
+        "evidence_quotes": [
+          "The company is developing the next generation of a rear brake housing for a junior roller skate used by children\naged 6 to 12.",
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "Reliability is the first priority. The component must not feel less robust than the current one. A lighter part is\nvaluable, and the visible surface must remain black and low-gloss.",
+          "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+          "The component should contain at least 30% recycled material by mass.",
+          "Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented. Recycled content is not a success if durability decreases\nsignificantly.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+          "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+          "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+          "A cycle-time increase above 10% should be avoided."
+        ],
+        "external_citations": [],
+        "text": "Develop the rear brake housing for a junior roller skate used by children aged 6 to 12, with reliability as the first priority: it should provide at least the current protection and durability and must not feel less robust. Approximately 15% lower mass would be commercially valuable but is subordinate to reliability; the component should contain at least 30% recycled material by mass, with post-consumer content preferred, documented feedstock origin and traceability mandatory, and no significant durability decrease accepted as sustainability success. The visible surface should remain black and low-gloss without looking noticeably lower quality, while the team wants to avoid significant component-cost or manufacturing disruption; mould reuse is strongly preferred, and a cycle-time increase above 10% should be avoided.",
+        "assumptions": [],
+        "uncertainties": [
+          "“Significant” cost increase, manufacturing disruption and durability decrease, and “noticeably lower quality” are not defined in the brief."
+        ]
+      },
+      "reviewed_content": {
+        "evidence_quotes": [
+          "The company is developing the next generation of a rear brake housing for a junior roller skate used by children\naged 6 to 12.",
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "Reliability is the first priority. The component must not feel less robust than the current one. A lighter part is\nvaluable, and the visible surface must remain black and low-gloss.",
+          "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+          "The component should contain at least 30% recycled material by mass.",
+          "Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented. Recycled content is not a success if durability decreases\nsignificantly.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+          "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+          "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+          "A cycle-time increase above 10% should be avoided.",
+          "The main problem to solve is cracking reported during winter use, particularly after impacts or falls."
+        ],
+        "external_citations": [],
+        "text": "Develop the rear brake housing for a junior roller skate used by children aged 6 to 12, addressing the main problem of winter-use cracking, particularly after impacts or falls, with reliability as the first priority: it should provide at least the current protection and durability and must not feel less robust. Approximately 15% lower mass would be commercially valuable but is subordinate to reliability; the component should contain at least 30% recycled material by mass, with post-consumer content preferred, documented feedstock origin and traceability mandatory, and no significant durability decrease accepted as sustainability success. The visible surface should remain black and low-gloss without looking noticeably lower quality, while the team wants to avoid significant component-cost or manufacturing disruption; mould reuse is strongly preferred, and a cycle-time increase above 10% should be avoided.",
+        "assumptions": [],
+        "uncertainties": [
+          "“Significant” cost increase, manufacturing disruption and durability decrease, and “noticeably lower quality” are not defined in the brief."
+        ]
+      },
+      "rationale": "Restore the brief's central winter-cracking problem without changing the stated priority hierarchy.",
+      "reviewer_note": null
+    },
+    "component_function": {
+      "section": "component_function",
+      "status": "approved_as_generated",
+      "model_content": {
+        "evidence_quotes": [
+          "The component protects and retains the rear braking mechanism and is exposed to drops, falls,\nkerbs and outdoor conditions."
+        ],
+        "external_citations": [],
+        "text": "The housing protects and retains the roller skate’s rear braking mechanism.",
+        "assumptions": [],
+        "uncertainties": []
+      },
+      "reviewed_content": {
+        "evidence_quotes": [
+          "The component protects and retains the rear braking mechanism and is exposed to drops, falls,\nkerbs and outdoor conditions."
+        ],
+        "external_citations": [],
+        "text": "The housing protects and retains the roller skate’s rear braking mechanism.",
+        "assumptions": [],
+        "uncertainties": []
+      },
+      "rationale": null,
+      "reviewer_note": null
+    },
+    "performance_to_validate": {
+      "section": "performance_to_validate",
+      "status": "approved_as_generated",
+      "model_content": {
+        "evidence_quotes": [
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+          "The expected outdoor-use range is approximately -10°C to 45°C.",
+          "17 cracked components were returned during the previous winter season.",
+          "13 of the 17 returns came from regions where temperatures had fallen below 0°C.",
+          "The real impact conditions and product history are unknown.",
+          "Most cracks appeared near the screw boss or at the junction between the main wall and the brake support.",
+          "Five complete rollers were conditioned for four hours at -10°C.",
+          "Each roller was dropped from 1.0 metre onto concrete in several informal orientations.",
+          "Two of the five brake housings cracked.",
+          "No room-temperature control group was tested.",
+          "The exact impact energy was not measured and the protocol is not standardized.",
+          "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+          "Component mass\n82 g\nConfirmed",
+          "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+          "At least 30% recycled content by mass is expected.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality."
+        ],
+        "external_citations": [],
+        "text": "Validation should demonstrate at least the current level of protection and durability across the approximately -10°C to 45°C outdoor-use range and assess cracking after relevant impacts or falls and deformation that could interfere with the brake mechanism; no numerical stiffness target exists. The need is supported by 17 prior-winter returns, including 13 from regions that had fallen below 0°C, with most cracks near the screw boss or wall-to-brake-support junction, and by an informal observation in which two of five housings cracked after complete rollers were conditioned for four hours at -10°C and dropped 1.0 metre onto concrete; actual field histories were unknown, and the observation lacked a room-temperature control, measured impact energy and a standardized protocol. Evaluation should also measure the proposed approximately 15% mass reduction against the confirmed 82 g current mass without displacing reliability, check the expected at-least-30% recycled content by mass, and assess whether the visible surface remains black and low-gloss without looking noticeably lower quality.",
+        "assumptions": [
+          "The stated outdoor-use range and named impact or fall conditions are treated as relevant validation contexts, not as a prescribed test protocol."
+        ],
+        "uncertainties": [
+          "The brief provides no numerical stiffness target, and the historical observations do not establish a standardized protocol or future cracking acceptance limit."
+        ]
+      },
+      "reviewed_content": {
+        "evidence_quotes": [
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+          "The expected outdoor-use range is approximately -10°C to 45°C.",
+          "17 cracked components were returned during the previous winter season.",
+          "13 of the 17 returns came from regions where temperatures had fallen below 0°C.",
+          "The real impact conditions and product history are unknown.",
+          "Most cracks appeared near the screw boss or at the junction between the main wall and the brake support.",
+          "Five complete rollers were conditioned for four hours at -10°C.",
+          "Each roller was dropped from 1.0 metre onto concrete in several informal orientations.",
+          "Two of the five brake housings cracked.",
+          "No room-temperature control group was tested.",
+          "The exact impact energy was not measured and the protocol is not standardized.",
+          "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+          "Component mass\n82 g\nConfirmed",
+          "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+          "At least 30% recycled content by mass is expected.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality."
+        ],
+        "external_citations": [],
+        "text": "Validation should demonstrate at least the current level of protection and durability across the approximately -10°C to 45°C outdoor-use range and assess cracking after relevant impacts or falls and deformation that could interfere with the brake mechanism; no numerical stiffness target exists. The need is supported by 17 prior-winter returns, including 13 from regions that had fallen below 0°C, with most cracks near the screw boss or wall-to-brake-support junction, and by an informal observation in which two of five housings cracked after complete rollers were conditioned for four hours at -10°C and dropped 1.0 metre onto concrete; actual field histories were unknown, and the observation lacked a room-temperature control, measured impact energy and a standardized protocol. Evaluation should also measure the proposed approximately 15% mass reduction against the confirmed 82 g current mass without displacing reliability, check the expected at-least-30% recycled content by mass, and assess whether the visible surface remains black and low-gloss without looking noticeably lower quality.",
+        "assumptions": [
+          "The stated outdoor-use range and named impact or fall conditions are treated as relevant validation contexts, not as a prescribed test protocol."
+        ],
+        "uncertainties": [
+          "The brief provides no numerical stiffness target, and the historical observations do not establish a standardized protocol or future cracking acceptance limit."
+        ]
+      },
+      "rationale": null,
+      "reviewer_note": null
+    },
+    "material_relevant_criteria": {
+      "section": "material_relevant_criteria",
+      "status": "corrected",
+      "model_content": {
+        "evidence_quotes": [
+          "Manufacturing process\nInjection moulding\nConfirmed",
+          "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+          "Nominal wall thickness\n2.5 mm\nConfirmed",
+          "Assembly\nTwo screws and one snap-fit\nConfirmed",
+          "The current mould and machine were developed for an injection-moulded polypropylene.",
+          "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+          "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+          "Visible whitening sometimes appears around the screw boss.",
+          "Current cycle time\n38 seconds\nConfirmed",
+          "A cycle-time increase above 10% should be avoided.",
+          "Current material price\nApproximately €2.10/kg\nEstimate",
+          "Current scrap rate\nApproximately 3%\nEstimate",
+          "Annual volume\nApproximately 180,000 parts\nForecast",
+          "Current material density\nUnknown\nNot available",
+          "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality."
+        ],
+        "external_citations": [],
+        "text": "The industrial baseline is injection moulding of an impact-modified polypropylene of unknown exact grade, with 2.5 mm nominal walls, two screws and one snap-fit; the current mould and machine were developed for injection-moulded polypropylene, and mould reuse is strongly preferred. Screening criteria include protection and durability in the stated service context, resistance to brake-interfering deformation, behaviour around the screw boss where whitening is sometimes visible, shrinkage compatible with dimensions and assembly, flow through thin mould sections despite no validated minimum-flow requirement, and mould-wear implications because abrasive reinforcements may increase wear. Sustainability and perceived-quality criteria retain the expected at-least-30% recycled content, preferred post-consumer feedstock, mandatory origin and traceability documentation, and black, low-gloss, not noticeably lower-quality surface; industrial comparison should retain the confirmed 38-second cycle with increases above 10% to be avoided, estimated approximately €2.10/kg current material price, estimated approximately 3% scrap rate, forecast approximately 180,000-part annual volume, and unknown current density.",
+        "assumptions": [],
+        "uncertainties": [
+          "The exact current grade, current density, validated minimum flow requirement and acceptable shrinkage range are unavailable."
+        ]
+      },
+      "reviewed_content": {
+        "evidence_quotes": [
+          "Manufacturing process\nInjection moulding\nConfirmed",
+          "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+          "Nominal wall thickness\n2.5 mm\nConfirmed",
+          "Assembly\nTwo screws and one snap-fit\nConfirmed",
+          "The current mould and machine were developed for an injection-moulded polypropylene.",
+          "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+          "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+          "Visible whitening sometimes appears around the screw boss.",
+          "Current cycle time\n38 seconds\nConfirmed",
+          "A cycle-time increase above 10% should be avoided.",
+          "Current material price\nApproximately €2.10/kg\nEstimate",
+          "Current scrap rate\nApproximately 3%\nEstimate",
+          "Annual volume\nApproximately 180,000 parts\nForecast",
+          "Current material density\nUnknown\nNot available",
+          "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+          "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists."
+        ],
+        "external_citations": [],
+        "text": "The industrial baseline is injection moulding of an impact-modified polypropylene of unknown exact grade, with 2.5 mm nominal walls, two screws and one snap-fit; the current mould and machine were developed for injection-moulded polypropylene, and mould reuse is strongly preferred. Screening criteria include protection and durability in the stated service context, resistance to brake-interfering deformation, behaviour around the screw boss where whitening is sometimes visible, shrinkage compatible with dimensions and assembly, flow through thin mould sections despite no validated minimum-flow requirement, and mould-wear implications because abrasive reinforcements may increase wear. Sustainability and perceived-quality criteria retain the expected at-least-30% recycled content, preferred post-consumer feedstock, mandatory origin and traceability documentation, and black, low-gloss, not noticeably lower-quality surface; industrial comparison should retain the confirmed 38-second cycle with increases above 10% to be avoided, estimated approximately €2.10/kg current material price, estimated approximately 3% scrap rate, forecast approximately 180,000-part annual volume, and unknown current density.",
+        "assumptions": [],
+        "uncertainties": [
+          "The exact current grade, current density, validated minimum flow requirement and acceptable shrinkage range are unavailable."
+        ]
+      },
+      "rationale": "Add same-section source support for mould reuse, comparative protection and durability, and brake-interfering deformation.",
+      "reviewer_note": null
+    },
+    "missing_information": {
+      "section": "missing_information",
+      "status": "corrected",
+      "items": [
+        {
+          "status": "approved_as_generated",
+          "model_index": 0,
+          "model_item": {
+            "evidence_quotes": [
+              "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+              "Current material density\nUnknown\nNot available",
+              "No standardized material-specimen data is available for the current grade. Existing evidence comes from finished\nparts, field returns and internal observations.",
+              "The root cause may involve the material, local geometry, assembly stress or a combination.",
+              "The real impact conditions and product history are unknown."
+            ],
+            "external_citations": [],
+            "text": "Establish the exact current-grade and density baselines, comparable material or finished-part evidence, actual field impact histories, and the relative contributions of material, local geometry and assembly stress."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+              "Current material density\nUnknown\nNot available",
+              "No standardized material-specimen data is available for the current grade. Existing evidence comes from finished\nparts, field returns and internal observations.",
+              "The root cause may involve the material, local geometry, assembly stress or a combination.",
+              "The real impact conditions and product history are unknown."
+            ],
+            "external_citations": [],
+            "text": "Establish the exact current-grade and density baselines, comparable material or finished-part evidence, actual field impact histories, and the relative contributions of material, local geometry and assembly stress."
+          },
+          "rationale": null
+        },
+        {
+          "status": "approved_as_generated",
+          "model_index": 1,
+          "model_item": {
+            "evidence_quotes": [
+              "The exact impact energy was not measured and the protocol is not standardized.",
+              "No room-temperature control group was tested.",
+              "No numerical stiffness target exists.",
+              "The new component should provide at least the same level of protection and durability as the current version.",
+              "The component must not feel less robust than the current one."
+            ],
+            "external_citations": [],
+            "text": "Define repeatable validation methods, controls and acceptance criteria for cracking, impact durability, brake-interfering deformation, “the same level of protection and durability,” and not feeling less robust; the existing cold-drop observation did not measure exact impact energy, was not standardized and had no room-temperature control, while no numerical stiffness target exists."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "The exact impact energy was not measured and the protocol is not standardized.",
+              "No room-temperature control group was tested.",
+              "No numerical stiffness target exists.",
+              "The new component should provide at least the same level of protection and durability as the current version.",
+              "The component must not feel less robust than the current one."
+            ],
+            "external_citations": [],
+            "text": "Define repeatable validation methods, controls and acceptance criteria for cracking, impact durability, brake-interfering deformation, “the same level of protection and durability,” and not feeling less robust; the existing cold-drop observation did not measure exact impact energy, was not standardized and had no room-temperature control, while no numerical stiffness target exists."
+          },
+          "rationale": null
+        },
+        {
+          "status": "approved_as_generated",
+          "model_index": 2,
+          "model_item": {
+            "evidence_quotes": [
+              "The local geometry around the screw boss is still being reviewed and may change.",
+              "Screw torque is not systematically recorded.",
+              "Large changes in\nshrinkage may create dimensional or assembly issues.",
+              "The mould has thin flow sections, but no validated minimum\nflow requirement is available."
+            ],
+            "external_citations": [],
+            "text": "Resolve the screw-boss geometry under review and obtain the assembly-torque, dimensional, shrinkage and minimum-flow requirements needed to judge compatibility with the component, assembly and existing mould."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "The local geometry around the screw boss is still being reviewed and may change.",
+              "Screw torque is not systematically recorded.",
+              "Large changes in\nshrinkage may create dimensional or assembly issues.",
+              "The mould has thin flow sections, but no validated minimum\nflow requirement is available."
+            ],
+            "external_citations": [],
+            "text": "Resolve the screw-boss geometry under review and obtain the assembly-torque, dimensional, shrinkage and minimum-flow requirements needed to judge compatibility with the component, assembly and existing mould."
+          },
+          "rationale": null
+        },
+        {
+          "status": "approved_as_generated",
+          "model_index": 3,
+          "model_item": {
+            "evidence_quotes": [
+              "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+              "Current material price\nApproximately €2.10/kg\nEstimate",
+              "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+              "Recycled content is not a success if durability decreases\nsignificantly."
+            ],
+            "external_citations": [],
+            "text": "Define the component-cost baseline, scope and allowable increase beyond the approximately €2.10/kg estimated material-price proxy, along with acceptable manufacturing disruption, black and low-gloss tolerances, the meaning of “noticeably lower quality,” and what constitutes a significant durability decrease."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+              "Current material price\nApproximately €2.10/kg\nEstimate",
+              "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+              "Recycled content is not a success if durability decreases\nsignificantly."
+            ],
+            "external_citations": [],
+            "text": "Define the component-cost baseline, scope and allowable increase beyond the approximately €2.10/kg estimated material-price proxy, along with acceptable manufacturing disruption, black and low-gloss tolerances, the meaning of “noticeably lower quality,” and what constitutes a significant durability decrease."
+          },
+          "rationale": null
+        },
+        {
+          "status": "corrected",
+          "model_index": 4,
+          "model_item": {
+            "evidence_quotes": [
+              "Feedstock\norigin and traceability must be documented.",
+              "We\nhave not tested it in the current mould and have not provided supporting data for this application."
+            ],
+            "external_citations": [],
+            "text": "Specify acceptable feedstock-origin and traceability documentation and obtain application evidence for any proposed material, including current-mould evidence absent from the supplier suggestion."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "Feedstock\norigin and traceability must be documented.",
+              "We\nhave not tested it in the current mould and have not provided supporting data for this application."
+            ],
+            "external_citations": [],
+            "text": "Specify acceptable feedstock-origin and traceability documentation and obtain application evidence for the supplier-proposed material, including current-mould evidence absent from the supplier suggestion."
+          },
+          "rationale": "Limit the application-evidence gap to the supplier proposal described by the cited source."
+        },
+        {
+          "status": "added",
+          "model_index": null,
+          "model_item": null,
+          "reviewed_item": {
+            "evidence_quotes": [
+              "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented."
+            ],
+            "external_citations": [],
+            "text": "Define the method and supporting evidence for verifying the required recycled-content fraction by mass."
+          },
+          "rationale": "Make the unresolved recycled-content verification method and supporting evidence explicit."
+        }
+      ],
+      "reviewer_note": null
+    },
+    "conflicts_and_tradeoffs": {
+      "section": "conflicts_and_tradeoffs",
+      "status": "corrected",
+      "items": [
+        {
+          "status": "corrected",
+          "model_index": 0,
+          "model_item": {
+            "evidence_quotes": [
+              "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+              "Recycled content is not a success if durability decreases\nsignificantly.",
+              "The team wants to avoid a significant increase in component cost or disruption to manufacturing."
+            ],
+            "external_citations": [],
+            "text": "The commercially valuable approximately 15% mass reduction is subordinate to reliability; recycled content is not considered successful if durability decreases significantly, while cost and manufacturing disruption should also be avoided."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+              "Recycled content is not a success if durability decreases\nsignificantly.",
+              "The team wants to avoid a significant increase in component cost or disruption to manufacturing."
+            ],
+            "external_citations": [],
+            "text": "The commercially valuable approximately 15% mass reduction is subordinate to reliability; recycled content is not considered successful if durability decreases significantly, while the team wants to avoid a significant increase in component cost or disruption to manufacturing."
+          },
+          "rationale": "Restore the source's significant-cost threshold and team-preference wording."
+        },
+        {
+          "status": "corrected",
+          "model_index": 1,
+          "model_item": {
+            "evidence_quotes": [
+              "The root cause may involve the material, local geometry, assembly stress or a combination.",
+              "The local geometry around the screw boss is still being reviewed and may change.",
+              "Screw torque is not systematically recorded."
+            ],
+            "external_citations": [],
+            "text": "A material decision cannot be isolated from local geometry and assembly stress because the root cause may involve any combination of them, the screw-boss geometry may change, and screw torque is not systematically recorded."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "The root cause may involve the material, local geometry, assembly stress or a combination.",
+              "The local geometry around the screw boss is still being reviewed and may change.",
+              "Screw torque is not systematically recorded."
+            ],
+            "external_citations": [],
+            "text": "Material decisions should account for the unresolved possible contributions of material, local geometry and assembly stress because the root cause may involve any of them or a combination; the screw-boss geometry may change, and screw torque is not systematically recorded."
+          },
+          "rationale": "Replace an absolute causal statement with the source's unresolved, multi-factor framing."
+        },
+        {
+          "status": "approved_as_generated",
+          "model_index": 2,
+          "model_item": {
+            "evidence_quotes": [
+              "“We recommend a 30% glass-fibre-reinforced PA6 because it is stronger and should solve the issue. We\nhave not tested it in the current mould and have not provided supporting data for this application.”",
+              "The current mould and machine were developed for an injection-moulded polypropylene.",
+              "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+              "Existing mould\nStrong preference to reuse it\nStakeholder preference"
+            ],
+            "external_citations": [],
+            "text": "The supplier’s proposed 30% glass-fibre-reinforced PA6 and claim that it “should solve the issue” remain unsupported application suggestions: the supplier has not tested it in the current mould or supplied application data, while the mould and machine were developed for injection-moulded polypropylene, mould reuse is strongly preferred, shrinkage changes may cause dimensional or assembly issues, and abrasive reinforcement may increase mould wear."
+          },
+          "reviewed_item": {
+            "evidence_quotes": [
+              "“We recommend a 30% glass-fibre-reinforced PA6 because it is stronger and should solve the issue. We\nhave not tested it in the current mould and have not provided supporting data for this application.”",
+              "The current mould and machine were developed for an injection-moulded polypropylene.",
+              "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+              "Existing mould\nStrong preference to reuse it\nStakeholder preference"
+            ],
+            "external_citations": [],
+            "text": "The supplier’s proposed 30% glass-fibre-reinforced PA6 and claim that it “should solve the issue” remain unsupported application suggestions: the supplier has not tested it in the current mould or supplied application data, while the mould and machine were developed for injection-moulded polypropylene, mould reuse is strongly preferred, shrinkage changes may cause dimensional or assembly issues, and abrasive reinforcement may increase mould wear."
+          },
+          "rationale": null
+        }
+      ],
+      "reviewer_note": null
+    }
+  },
+  "reviewed_dossier": {
+    "product_intent": {
+      "evidence_quotes": [
+        "The company is developing the next generation of a rear brake housing for a junior roller skate used by children\naged 6 to 12.",
+        "The new component should provide at least the same level of protection and durability as the current version.",
+        "Reliability is the first priority. The component must not feel less robust than the current one. A lighter part is\nvaluable, and the visible surface must remain black and low-gloss.",
+        "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+        "The component should contain at least 30% recycled material by mass.",
+        "Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented. Recycled content is not a success if durability decreases\nsignificantly.",
+        "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+        "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+        "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+        "A cycle-time increase above 10% should be avoided.",
+        "The main problem to solve is cracking reported during winter use, particularly after impacts or falls."
+      ],
+      "external_citations": [],
+      "text": "Develop the rear brake housing for a junior roller skate used by children aged 6 to 12, addressing the main problem of winter-use cracking, particularly after impacts or falls, with reliability as the first priority: it should provide at least the current protection and durability and must not feel less robust. Approximately 15% lower mass would be commercially valuable but is subordinate to reliability; the component should contain at least 30% recycled material by mass, with post-consumer content preferred, documented feedstock origin and traceability mandatory, and no significant durability decrease accepted as sustainability success. The visible surface should remain black and low-gloss without looking noticeably lower quality, while the team wants to avoid significant component-cost or manufacturing disruption; mould reuse is strongly preferred, and a cycle-time increase above 10% should be avoided.",
+      "assumptions": [],
+      "uncertainties": [
+        "“Significant” cost increase, manufacturing disruption and durability decrease, and “noticeably lower quality” are not defined in the brief."
+      ]
+    },
+    "component_function": {
+      "evidence_quotes": [
+        "The component protects and retains the rear braking mechanism and is exposed to drops, falls,\nkerbs and outdoor conditions."
+      ],
+      "external_citations": [],
+      "text": "The housing protects and retains the roller skate’s rear braking mechanism.",
+      "assumptions": [],
+      "uncertainties": []
+    },
+    "performance_to_validate": {
+      "evidence_quotes": [
+        "The new component should provide at least the same level of protection and durability as the current version.",
+        "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+        "The expected outdoor-use range is approximately -10°C to 45°C.",
+        "17 cracked components were returned during the previous winter season.",
+        "13 of the 17 returns came from regions where temperatures had fallen below 0°C.",
+        "The real impact conditions and product history are unknown.",
+        "Most cracks appeared near the screw boss or at the junction between the main wall and the brake support.",
+        "Five complete rollers were conditioned for four hours at -10°C.",
+        "Each roller was dropped from 1.0 metre onto concrete in several informal orientations.",
+        "Two of the five brake housings cracked.",
+        "No room-temperature control group was tested.",
+        "The exact impact energy was not measured and the protocol is not standardized.",
+        "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+        "Component mass\n82 g\nConfirmed",
+        "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+        "At least 30% recycled content by mass is expected.",
+        "The visible surface should remain black and low-gloss and should not look noticeably lower quality."
+      ],
+      "external_citations": [],
+      "text": "Validation should demonstrate at least the current level of protection and durability across the approximately -10°C to 45°C outdoor-use range and assess cracking after relevant impacts or falls and deformation that could interfere with the brake mechanism; no numerical stiffness target exists. The need is supported by 17 prior-winter returns, including 13 from regions that had fallen below 0°C, with most cracks near the screw boss or wall-to-brake-support junction, and by an informal observation in which two of five housings cracked after complete rollers were conditioned for four hours at -10°C and dropped 1.0 metre onto concrete; actual field histories were unknown, and the observation lacked a room-temperature control, measured impact energy and a standardized protocol. Evaluation should also measure the proposed approximately 15% mass reduction against the confirmed 82 g current mass without displacing reliability, check the expected at-least-30% recycled content by mass, and assess whether the visible surface remains black and low-gloss without looking noticeably lower quality.",
+      "assumptions": [
+        "The stated outdoor-use range and named impact or fall conditions are treated as relevant validation contexts, not as a prescribed test protocol."
+      ],
+      "uncertainties": [
+        "The brief provides no numerical stiffness target, and the historical observations do not establish a standardized protocol or future cracking acceptance limit."
+      ]
+    },
+    "material_relevant_criteria": {
+      "evidence_quotes": [
+        "Manufacturing process\nInjection moulding\nConfirmed",
+        "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+        "Nominal wall thickness\n2.5 mm\nConfirmed",
+        "Assembly\nTwo screws and one snap-fit\nConfirmed",
+        "The current mould and machine were developed for an injection-moulded polypropylene.",
+        "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+        "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+        "Visible whitening sometimes appears around the screw boss.",
+        "Current cycle time\n38 seconds\nConfirmed",
+        "A cycle-time increase above 10% should be avoided.",
+        "Current material price\nApproximately €2.10/kg\nEstimate",
+        "Current scrap rate\nApproximately 3%\nEstimate",
+        "Annual volume\nApproximately 180,000 parts\nForecast",
+        "Current material density\nUnknown\nNot available",
+        "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+        "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+        "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+        "The new component should provide at least the same level of protection and durability as the current version.",
+        "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists."
+      ],
+      "external_citations": [],
+      "text": "The industrial baseline is injection moulding of an impact-modified polypropylene of unknown exact grade, with 2.5 mm nominal walls, two screws and one snap-fit; the current mould and machine were developed for injection-moulded polypropylene, and mould reuse is strongly preferred. Screening criteria include protection and durability in the stated service context, resistance to brake-interfering deformation, behaviour around the screw boss where whitening is sometimes visible, shrinkage compatible with dimensions and assembly, flow through thin mould sections despite no validated minimum-flow requirement, and mould-wear implications because abrasive reinforcements may increase wear. Sustainability and perceived-quality criteria retain the expected at-least-30% recycled content, preferred post-consumer feedstock, mandatory origin and traceability documentation, and black, low-gloss, not noticeably lower-quality surface; industrial comparison should retain the confirmed 38-second cycle with increases above 10% to be avoided, estimated approximately €2.10/kg current material price, estimated approximately 3% scrap rate, forecast approximately 180,000-part annual volume, and unknown current density.",
+      "assumptions": [],
+      "uncertainties": [
+        "The exact current grade, current density, validated minimum flow requirement and acceptable shrinkage range are unavailable."
+      ]
+    },
+    "missing_information": [
+      {
+        "evidence_quotes": [
+          "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+          "Current material density\nUnknown\nNot available",
+          "No standardized material-specimen data is available for the current grade. Existing evidence comes from finished\nparts, field returns and internal observations.",
+          "The root cause may involve the material, local geometry, assembly stress or a combination.",
+          "The real impact conditions and product history are unknown."
+        ],
+        "external_citations": [],
+        "text": "Establish the exact current-grade and density baselines, comparable material or finished-part evidence, actual field impact histories, and the relative contributions of material, local geometry and assembly stress."
+      },
+      {
+        "evidence_quotes": [
+          "The exact impact energy was not measured and the protocol is not standardized.",
+          "No room-temperature control group was tested.",
+          "No numerical stiffness target exists.",
+          "The new component should provide at least the same level of protection and durability as the current version.",
+          "The component must not feel less robust than the current one."
+        ],
+        "external_citations": [],
+        "text": "Define repeatable validation methods, controls and acceptance criteria for cracking, impact durability, brake-interfering deformation, “the same level of protection and durability,” and not feeling less robust; the existing cold-drop observation did not measure exact impact energy, was not standardized and had no room-temperature control, while no numerical stiffness target exists."
+      },
+      {
+        "evidence_quotes": [
+          "The local geometry around the screw boss is still being reviewed and may change.",
+          "Screw torque is not systematically recorded.",
+          "Large changes in\nshrinkage may create dimensional or assembly issues.",
+          "The mould has thin flow sections, but no validated minimum\nflow requirement is available."
+        ],
+        "external_citations": [],
+        "text": "Resolve the screw-boss geometry under review and obtain the assembly-torque, dimensional, shrinkage and minimum-flow requirements needed to judge compatibility with the component, assembly and existing mould."
+      },
+      {
+        "evidence_quotes": [
+          "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+          "Current material price\nApproximately €2.10/kg\nEstimate",
+          "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+          "Recycled content is not a success if durability decreases\nsignificantly."
+        ],
+        "external_citations": [],
+        "text": "Define the component-cost baseline, scope and allowable increase beyond the approximately €2.10/kg estimated material-price proxy, along with acceptable manufacturing disruption, black and low-gloss tolerances, the meaning of “noticeably lower quality,” and what constitutes a significant durability decrease."
+      },
+      {
+        "evidence_quotes": [
+          "Feedstock\norigin and traceability must be documented.",
+          "We\nhave not tested it in the current mould and have not provided supporting data for this application."
+        ],
+        "external_citations": [],
+        "text": "Specify acceptable feedstock-origin and traceability documentation and obtain application evidence for the supplier-proposed material, including current-mould evidence absent from the supplier suggestion."
+      },
+      {
+        "evidence_quotes": [
+          "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented."
+        ],
+        "external_citations": [],
+        "text": "Define the method and supporting evidence for verifying the required recycled-content fraction by mass."
+      }
+    ],
+    "conflicts_and_tradeoffs": [
+      {
+        "evidence_quotes": [
+          "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+          "Recycled content is not a success if durability decreases\nsignificantly.",
+          "The team wants to avoid a significant increase in component cost or disruption to manufacturing."
+        ],
+        "external_citations": [],
+        "text": "The commercially valuable approximately 15% mass reduction is subordinate to reliability; recycled content is not considered successful if durability decreases significantly, while the team wants to avoid a significant increase in component cost or disruption to manufacturing."
+      },
+      {
+        "evidence_quotes": [
+          "The root cause may involve the material, local geometry, assembly stress or a combination.",
+          "The local geometry around the screw boss is still being reviewed and may change.",
+          "Screw torque is not systematically recorded."
+        ],
+        "external_citations": [],
+        "text": "Material decisions should account for the unresolved possible contributions of material, local geometry and assembly stress because the root cause may involve any of them or a combination; the screw-boss geometry may change, and screw torque is not systematically recorded."
+      },
+      {
+        "evidence_quotes": [
+          "“We recommend a 30% glass-fibre-reinforced PA6 because it is stronger and should solve the issue. We\nhave not tested it in the current mould and have not provided supporting data for this application.”",
+          "The current mould and machine were developed for an injection-moulded polypropylene.",
+          "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+          "Existing mould\nStrong preference to reuse it\nStakeholder preference"
+        ],
+        "external_citations": [],
+        "text": "The supplier’s proposed 30% glass-fibre-reinforced PA6 and claim that it “should solve the issue” remain unsupported application suggestions: the supplier has not tested it in the current mould or supplied application data, while the mould and machine were developed for injection-moulded polypropylene, mould reuse is strongly preferred, shrinkage changes may cause dimensional or assembly issues, and abrasive reinforcement may increase mould wear."
+      }
+    ]
+  },
+  "validation": {
+    "contents": [
+      {
+        "owner": "product_intent",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The company is developing the next generation of a rear brake housing for a junior roller skate used by children\naged 6 to 12.",
+            "source_quote": "The company is developing the next generation of a rear brake housing for a junior roller skate used by children\naged 6 to 12.",
+            "start": 126,
+            "end": 252,
+            "page_number": 1
+          },
+          {
+            "quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "source_quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "start": 413,
+            "end": 522,
+            "page_number": 1
+          },
+          {
+            "quote": "Reliability is the first priority. The component must not feel less robust than the current one. A lighter part is\nvaluable, and the visible surface must remain black and low-gloss.",
+            "source_quote": "Reliability is the first priority. The component must not feel less robust than the current one. A lighter part is\nvaluable, and the visible surface must remain black and low-gloss.",
+            "start": 3021,
+            "end": 3202,
+            "page_number": 2
+          },
+          {
+            "quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "source_quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "start": 701,
+            "end": 807,
+            "page_number": 1
+          },
+          {
+            "quote": "The component should contain at least 30% recycled material by mass.",
+            "source_quote": "The component should contain at least 30% recycled material by mass.",
+            "start": 812,
+            "end": 880,
+            "page_number": 1
+          },
+          {
+            "quote": "Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented. Recycled content is not a success if durability decreases\nsignificantly.",
+            "source_quote": "Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented. Recycled content is not a success if durability decreases\nsignificantly.",
+            "start": 3867,
+            "end": 4038,
+            "page_number": 2
+          },
+          {
+            "quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "source_quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "start": 885,
+            "end": 984,
+            "page_number": 1
+          },
+          {
+            "quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "source_quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "start": 989,
+            "end": 1085,
+            "page_number": 1
+          },
+          {
+            "quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "source_quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "start": 1768,
+            "end": 1835,
+            "page_number": 1
+          },
+          {
+            "quote": "A cycle-time increase above 10% should be avoided.",
+            "source_quote": "A\ncycle-time increase above 10% should be avoided.",
+            "start": 3652,
+            "end": 3702,
+            "page_number": 2
+          },
+          {
+            "quote": "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+            "source_quote": "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+            "start": 527,
+            "end": 629,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "component_function",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The component protects and retains the rear braking mechanism and is exposed to drops, falls,\nkerbs and outdoor conditions.",
+            "source_quote": "The component protects and retains the rear braking mechanism and is exposed to drops, falls,\nkerbs and outdoor conditions.",
+            "start": 253,
+            "end": 376,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "performance_to_validate",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "source_quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "start": 413,
+            "end": 522,
+            "page_number": 1
+          },
+          {
+            "quote": "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+            "source_quote": "The main problem to solve is cracking reported during winter use, particularly after impacts or falls.",
+            "start": 527,
+            "end": 629,
+            "page_number": 1
+          },
+          {
+            "quote": "The expected outdoor-use range is approximately -10°C to 45°C.",
+            "source_quote": "The expected outdoor-use range is approximately -10°C to 45°C.",
+            "start": 634,
+            "end": 696,
+            "page_number": 1
+          },
+          {
+            "quote": "17 cracked components were returned during the previous winter season.",
+            "source_quote": "17 cracked components were returned during the previous winter season.",
+            "start": 2100,
+            "end": 2170,
+            "page_number": 2
+          },
+          {
+            "quote": "13 of the 17 returns came from regions where temperatures had fallen below 0°C.",
+            "source_quote": "13 of the 17 returns came from regions where temperatures had fallen below 0°C.",
+            "start": 2175,
+            "end": 2254,
+            "page_number": 2
+          },
+          {
+            "quote": "The real impact conditions and product history are unknown.",
+            "source_quote": "The real impact conditions and product history are unknown.",
+            "start": 2259,
+            "end": 2318,
+            "page_number": 2
+          },
+          {
+            "quote": "Most cracks appeared near the screw boss or at the junction between the main wall and the brake support.",
+            "source_quote": "Most cracks appeared near the screw boss or at the junction between the main wall and the brake support.",
+            "start": 2323,
+            "end": 2427,
+            "page_number": 2
+          },
+          {
+            "quote": "Five complete rollers were conditioned for four hours at -10°C.",
+            "source_quote": "Five complete rollers were conditioned for four hours at -10°C.",
+            "start": 2463,
+            "end": 2526,
+            "page_number": 2
+          },
+          {
+            "quote": "Each roller was dropped from 1.0 metre onto concrete in several informal orientations.",
+            "source_quote": "Each roller was dropped from 1.0 metre onto concrete in several informal orientations.",
+            "start": 2531,
+            "end": 2617,
+            "page_number": 2
+          },
+          {
+            "quote": "Two of the five brake housings cracked.",
+            "source_quote": "Two of the five brake housings cracked.",
+            "start": 2622,
+            "end": 2661,
+            "page_number": 2
+          },
+          {
+            "quote": "No room-temperature control group was tested.",
+            "source_quote": "No room-temperature control group was tested.",
+            "start": 2666,
+            "end": 2711,
+            "page_number": 2
+          },
+          {
+            "quote": "The exact impact energy was not measured and the protocol is not standardized.",
+            "source_quote": "The exact impact energy was not measured and the protocol is not standardized.",
+            "start": 2716,
+            "end": 2794,
+            "page_number": 2
+          },
+          {
+            "quote": "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+            "source_quote": "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+            "start": 3311,
+            "end": 3424,
+            "page_number": 2
+          },
+          {
+            "quote": "Component mass\n82 g\nConfirmed",
+            "source_quote": "Component mass\n82 g\nConfirmed",
+            "start": 1239,
+            "end": 1268,
+            "page_number": 1
+          },
+          {
+            "quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "source_quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "start": 701,
+            "end": 807,
+            "page_number": 1
+          },
+          {
+            "quote": "At least 30% recycled content by mass is expected.",
+            "source_quote": "At least 30% recycled content by mass is expected.",
+            "start": 3816,
+            "end": 3866,
+            "page_number": 2
+          },
+          {
+            "quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "source_quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "start": 885,
+            "end": 984,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "material_relevant_criteria",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Manufacturing process\nInjection moulding\nConfirmed",
+            "source_quote": "Manufacturing process\nInjection moulding\nConfirmed",
+            "start": 1309,
+            "end": 1359,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+            "source_quote": "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+            "start": 1360,
+            "end": 1443,
+            "page_number": 1
+          },
+          {
+            "quote": "Nominal wall thickness\n2.5 mm\nConfirmed",
+            "source_quote": "Nominal wall thickness\n2.5 mm\nConfirmed",
+            "start": 1269,
+            "end": 1308,
+            "page_number": 1
+          },
+          {
+            "quote": "Assembly\nTwo screws and one snap-fit\nConfirmed",
+            "source_quote": "Assembly\nTwo screws and one snap-fit\nConfirmed",
+            "start": 1585,
+            "end": 1631,
+            "page_number": 1
+          },
+          {
+            "quote": "The current mould and machine were developed for an injection-moulded polypropylene.",
+            "source_quote": "The current mould and machine were developed for an injection-moulded polypropylene.",
+            "start": 3448,
+            "end": 3532,
+            "page_number": 2
+          },
+          {
+            "quote": "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+            "source_quote": "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+            "start": 3533,
+            "end": 3651,
+            "page_number": 2
+          },
+          {
+            "quote": "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+            "source_quote": "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+            "start": 3703,
+            "end": 3792,
+            "page_number": 2
+          },
+          {
+            "quote": "Visible whitening sometimes appears around the screw boss.",
+            "source_quote": "Visible whitening sometimes appears around the screw boss.",
+            "start": 2877,
+            "end": 2935,
+            "page_number": 2
+          },
+          {
+            "quote": "Current cycle time\n38 seconds\nConfirmed",
+            "source_quote": "Current cycle time\n38 seconds\nConfirmed",
+            "start": 1683,
+            "end": 1722,
+            "page_number": 1
+          },
+          {
+            "quote": "A cycle-time increase above 10% should be avoided.",
+            "source_quote": "A\ncycle-time increase above 10% should be avoided.",
+            "start": 3652,
+            "end": 3702,
+            "page_number": 2
+          },
+          {
+            "quote": "Current material price\nApproximately €2.10/kg\nEstimate",
+            "source_quote": "Current material price\nApproximately €2.10/kg\nEstimate",
+            "start": 1491,
+            "end": 1545,
+            "page_number": 1
+          },
+          {
+            "quote": "Current scrap rate\nApproximately 3%\nEstimate",
+            "source_quote": "Current scrap rate\nApproximately 3%\nEstimate",
+            "start": 1723,
+            "end": 1767,
+            "page_number": 1
+          },
+          {
+            "quote": "Annual volume\nApproximately 180,000 parts\nForecast",
+            "source_quote": "Annual volume\nApproximately 180,000 parts\nForecast",
+            "start": 1632,
+            "end": 1682,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material density\nUnknown\nNot available",
+            "source_quote": "Current material density\nUnknown\nNot available",
+            "start": 1444,
+            "end": 1490,
+            "page_number": 1
+          },
+          {
+            "quote": "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+            "source_quote": "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+            "start": 3816,
+            "end": 3965,
+            "page_number": 2
+          },
+          {
+            "quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "source_quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "start": 885,
+            "end": 984,
+            "page_number": 1
+          },
+          {
+            "quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "source_quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "start": 1768,
+            "end": 1835,
+            "page_number": 1
+          },
+          {
+            "quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "source_quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "start": 413,
+            "end": 522,
+            "page_number": 1
+          },
+          {
+            "quote": "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+            "source_quote": "The component must\nnot deform enough to interfere with the brake mechanism. No numerical stiffness target exists.",
+            "start": 3311,
+            "end": 3424,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[1]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+            "source_quote": "Current material\nImpact-modified polypropylene; exact grade unknown\nPartially known",
+            "start": 1360,
+            "end": 1443,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material density\nUnknown\nNot available",
+            "source_quote": "Current material density\nUnknown\nNot available",
+            "start": 1444,
+            "end": 1490,
+            "page_number": 1
+          },
+          {
+            "quote": "No standardized material-specimen data is available for the current grade. Existing evidence comes from finished\nparts, field returns and internal observations.",
+            "source_quote": "No standardized material-specimen data is available for the current grade. Existing evidence comes from finished\nparts, field returns and internal observations.",
+            "start": 1836,
+            "end": 1996,
+            "page_number": 1
+          },
+          {
+            "quote": "The root cause may involve the material, local geometry, assembly stress or a combination.",
+            "source_quote": "The root cause may involve the material, local geometry, assembly stress or a combination.",
+            "start": 3220,
+            "end": 3310,
+            "page_number": 2
+          },
+          {
+            "quote": "The real impact conditions and product history are unknown.",
+            "source_quote": "The real impact conditions and product history are unknown.",
+            "start": 2259,
+            "end": 2318,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[2]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The exact impact energy was not measured and the protocol is not standardized.",
+            "source_quote": "The exact impact energy was not measured and the protocol is not standardized.",
+            "start": 2716,
+            "end": 2794,
+            "page_number": 2
+          },
+          {
+            "quote": "No room-temperature control group was tested.",
+            "source_quote": "No room-temperature control group was tested.",
+            "start": 2666,
+            "end": 2711,
+            "page_number": 2
+          },
+          {
+            "quote": "No numerical stiffness target exists.",
+            "source_quote": "No numerical stiffness target exists.",
+            "start": 3387,
+            "end": 3424,
+            "page_number": 2
+          },
+          {
+            "quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "source_quote": "The new component should provide at least the same level of protection and durability as the current version.",
+            "start": 413,
+            "end": 522,
+            "page_number": 1
+          },
+          {
+            "quote": "The component must not feel less robust than the current one.",
+            "source_quote": "The component must not feel less robust than the current one.",
+            "start": 3056,
+            "end": 3117,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[3]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The local geometry around the screw boss is still being reviewed and may change.",
+            "source_quote": "The local geometry around the screw boss is still being reviewed and may change.",
+            "start": 1090,
+            "end": 1170,
+            "page_number": 1
+          },
+          {
+            "quote": "Screw torque is not systematically recorded.",
+            "source_quote": "Screw torque is not systematically recorded.",
+            "start": 2940,
+            "end": 2984,
+            "page_number": 2
+          },
+          {
+            "quote": "Large changes in\nshrinkage may create dimensional or assembly issues.",
+            "source_quote": "Large changes in\nshrinkage may create dimensional or assembly issues.",
+            "start": 3533,
+            "end": 3602,
+            "page_number": 2
+          },
+          {
+            "quote": "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+            "source_quote": "The mould has thin flow sections, but no validated minimum\nflow requirement is available.",
+            "start": 3703,
+            "end": 3792,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[4]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "source_quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "start": 989,
+            "end": 1085,
+            "page_number": 1
+          },
+          {
+            "quote": "Current material price\nApproximately €2.10/kg\nEstimate",
+            "source_quote": "Current material price\nApproximately €2.10/kg\nEstimate",
+            "start": 1491,
+            "end": 1545,
+            "page_number": 1
+          },
+          {
+            "quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "source_quote": "The visible surface should remain black and low-gloss and should not look noticeably lower quality.",
+            "start": 885,
+            "end": 984,
+            "page_number": 1
+          },
+          {
+            "quote": "Recycled content is not a success if durability decreases\nsignificantly.",
+            "source_quote": "Recycled content is not a success if durability decreases\nsignificantly.",
+            "start": 3966,
+            "end": 4038,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[5]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "Feedstock\norigin and traceability must be documented.",
+            "source_quote": "Feedstock\norigin and traceability must be documented.",
+            "start": 3912,
+            "end": 3965,
+            "page_number": 2
+          },
+          {
+            "quote": "We\nhave not tested it in the current mould and have not provided supporting data for this application.",
+            "source_quote": "We\nhave not tested it in the current mould and have not provided supporting data for this application.",
+            "start": 4157,
+            "end": 4259,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "missing_information[6]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+            "source_quote": "At least 30% recycled content by mass is expected. Post-consumer recycled content is preferred. Feedstock\norigin and traceability must be documented.",
+            "start": 3816,
+            "end": 3965,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[1]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "source_quote": "A mass reduction of approximately 15% would be commercially valuable, but reliability has higher priority.",
+            "start": 701,
+            "end": 807,
+            "page_number": 1
+          },
+          {
+            "quote": "Recycled content is not a success if durability decreases\nsignificantly.",
+            "source_quote": "Recycled content is not a success if durability decreases\nsignificantly.",
+            "start": 3966,
+            "end": 4038,
+            "page_number": 2
+          },
+          {
+            "quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "source_quote": "The team wants to avoid a significant increase in component cost or disruption to manufacturing.",
+            "start": 989,
+            "end": 1085,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[2]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "The root cause may involve the material, local geometry, assembly stress or a combination.",
+            "source_quote": "The root cause may involve the material, local geometry, assembly stress or a combination.",
+            "start": 3220,
+            "end": 3310,
+            "page_number": 2
+          },
+          {
+            "quote": "The local geometry around the screw boss is still being reviewed and may change.",
+            "source_quote": "The local geometry around the screw boss is still being reviewed and may change.",
+            "start": 1090,
+            "end": 1170,
+            "page_number": 1
+          },
+          {
+            "quote": "Screw torque is not systematically recorded.",
+            "source_quote": "Screw torque is not systematically recorded.",
+            "start": 2940,
+            "end": 2984,
+            "page_number": 2
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      },
+      {
+        "owner": "conflicts_and_tradeoffs[3]",
+        "valid": true,
+        "evidence_spans": [
+          {
+            "quote": "“We recommend a 30% glass-fibre-reinforced PA6 because it is stronger and should solve the issue. We\nhave not tested it in the current mould and have not provided supporting data for this application.”",
+            "source_quote": "“We recommend a 30% glass-fibre-reinforced PA6 because it is stronger and should solve the issue. We\nhave not tested it in the current mould and have not provided supporting data for this application.”",
+            "start": 4059,
+            "end": 4260,
+            "page_number": 2
+          },
+          {
+            "quote": "The current mould and machine were developed for an injection-moulded polypropylene.",
+            "source_quote": "The current mould and machine were developed for an injection-moulded polypropylene.",
+            "start": 3448,
+            "end": 3532,
+            "page_number": 2
+          },
+          {
+            "quote": "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+            "source_quote": "Large changes in\nshrinkage may create dimensional or assembly issues. Abrasive reinforcements may increase mould wear.",
+            "start": 3533,
+            "end": 3651,
+            "page_number": 2
+          },
+          {
+            "quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "source_quote": "Existing mould\nStrong preference to reuse it\nStakeholder preference",
+            "start": 1768,
+            "end": 1835,
+            "page_number": 1
+          }
+        ],
+        "external_evidence_spans": [],
+        "errors": [],
+        "unsupported_numbers": []
+      }
+    ]
+  },
+  "known_limitations": [
+    "Mechanical revalidation proves exact citation, source-reference and numeric provenance rules; it does not prove engineering correctness.",
+    "The model critic is not rerun over human revisions; any semantic evaluation is a separate supporting artifact and is not part of this review record.",
+    "Approval records one reviewer decision and is not independent multi-reviewer sign-off."
+  ]
+}

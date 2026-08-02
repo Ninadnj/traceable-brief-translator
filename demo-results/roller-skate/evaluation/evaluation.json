@@ -1,0 +1,120 @@
+{
+  "schema_version": "compoundx.semantic-evaluation.v2",
+  "case_name": "Junior roller-skate rear brake housing",
+  "source_sha256": "43b394906f3fc409e977a2e3462c65d8c778ec159489e5dd10ea3b15b81f7300",
+  "report_sha256": "e0c508fdb9fbf5eff06970a5a9fe688a64b53e6f9d49f73ff94c13451cb37796",
+  "report_path": "section-reviews/20260802T221026000000Z-finalize-approved_with_corrections-e0c508fdb9/review.json",
+  "evaluated_at": "2026-08-02T22:10:27Z",
+  "evaluation_method": "model_assisted",
+  "evaluator": "OpenAI Codex (supporting evaluation; not human review)",
+  "scores": [
+    {
+      "criterion": "product_intent_preserves_priorities",
+      "score": 5,
+      "rationale": "The reviewed intent restores the main winter-cracking problem and preserves reliability above mass and sustainability preferences.",
+      "report_evidence": [
+        "reviewed_dossier.product_intent.text",
+        "sections.product_intent.rationale"
+      ]
+    },
+    {
+      "criterion": "component_function_is_clear",
+      "score": 5,
+      "rationale": "The component function remains concise and independent of a material choice.",
+      "report_evidence": [
+        "reviewed_dossier.component_function.text"
+      ]
+    },
+    {
+      "criterion": "performance_is_observable",
+      "score": 5,
+      "rationale": "Future outcomes remain observable while field returns and the cold-drop observation are explicitly historical and non-standardized.",
+      "report_evidence": [
+        "reviewed_dossier.performance_to_validate.text"
+      ]
+    },
+    {
+      "criterion": "material_criteria_are_cautious",
+      "score": 4,
+      "rationale": "The screening criteria are cautious and locally cited; the section is necessarily dense because several industrial baselines remain unresolved.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria",
+        "sections.material_relevant_criteria.rationale"
+      ]
+    },
+    {
+      "criterion": "missing_information_is_complete",
+      "score": 5,
+      "rationale": "The reviewed list includes the recycled-content verification method and keeps the supplier evidence gap correctly scoped.",
+      "report_evidence": [
+        "reviewed_dossier.missing_information[4]",
+        "reviewed_dossier.missing_information[5]"
+      ]
+    },
+    {
+      "criterion": "tradeoffs_are_represented",
+      "score": 5,
+      "rationale": "Cost, manufacturing, mass, durability and possible multi-factor root causes retain their source qualifiers and ambiguity.",
+      "report_evidence": [
+        "reviewed_dossier.conflicts_and_tradeoffs[0]",
+        "reviewed_dossier.conflicts_and_tradeoffs[1]"
+      ]
+    },
+    {
+      "criterion": "evidence_is_traceable",
+      "score": 5,
+      "rationale": "Every reviewed content object passes exact citation and numeric provenance checks.",
+      "report_evidence": [
+        "validation.contents"
+      ]
+    },
+    {
+      "criterion": "output_is_concise_and_readable",
+      "score": 4,
+      "rationale": "The dossier is coherent and reviewable, though the criteria sections remain information-dense.",
+      "report_evidence": [
+        "reviewed_dossier"
+      ]
+    }
+  ],
+  "adversarial_checks": [
+    {
+      "check_id": "supplier_pa6_not_selected",
+      "expectation": "The unsupported glass-filled PA6 supplier proposal must not become a selection.",
+      "observed_treatment": "It remains an unsupported application suggestion with missing mould evidence.",
+      "report_evidence": [
+        "reviewed_dossier.conflicts_and_tradeoffs[2]"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "qualifier_force_preserved",
+      "expectation": "Approximately, at least, preferred and should-be-avoided wording must retain force.",
+      "observed_treatment": "The reviewed intent and trade-offs preserve all four qualifier types.",
+      "report_evidence": [
+        "reviewed_dossier.product_intent.text",
+        "reviewed_dossier.conflicts_and_tradeoffs[0]"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "historical_observation_not_requirement",
+      "expectation": "The informal cold-drop observation must remain rationale, not an acceptance test.",
+      "observed_treatment": "It is labelled informal, non-standardized and lacking controls and measured energy.",
+      "report_evidence": [
+        "reviewed_dossier.performance_to_validate.text"
+      ],
+      "passed": true
+    },
+    {
+      "check_id": "local_evidence_complete",
+      "expectation": "Each material-criteria claim must have same-object evidence.",
+      "observed_treatment": "The reviewed section adds exact mould, protection, durability and deformation quotations.",
+      "report_evidence": [
+        "reviewed_dossier.material_relevant_criteria.evidence_quotes"
+      ],
+      "passed": true
+    }
+  ],
+  "summary": "PASS as a model-assisted supporting evaluation of the finalized human-reviewed artifact. The rubric neither changes deterministic eligibility nor independently confirms Nina Doinjashvili's human approval; it does not establish design safety."
+}

@@ -34,9 +34,10 @@ jobs:
       - name: Test
         run: pytest -ra
 
-      - name: Verify the shipped artifacts still validate
-        # The demo artifacts are the project's evidence. A change that silently
-        # breaks their citation or numeric provenance must fail the build.
+      - name: Verify the shipped base reports still validate
+        # The full review chains, manifests and supporting evaluations are covered
+        # by tests/test_published_demo_artifacts.py. Keep this explicit check focused
+        # on the accepted model reports and critic contracts.
         run: |
           python - <<'PY'
           import json, sys
